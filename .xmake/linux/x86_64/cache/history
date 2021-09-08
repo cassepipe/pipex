@@ -1,0 +1,26 @@
+{
+    cmdlines = {
+        "xmake lua /home/bajaba/.local/share/xmake/actions/build/statistics.lua",
+        "xmake ",
+        "xmake ",
+        "xmake ",
+        "xmake lua /home/bajaba/.local/share/xmake/actions/build/cleaner.lua",
+        "xmake ",
+        "xmake ",
+        "xmake ",
+        "xmake ",
+        "xmake run",
+        "xmake update",
+        "xmake ",
+        "xmake create -l c",
+        "xmake ",
+        "xmake ",
+        "xmake run 1 2",
+        "xmake run arguments 1 2",
+        "xmake r",
+        "xmake r pipex 1 2 3",
+        "xmake r pipex 1 2 3 4",
+        "xmake ",
+        "xmake -r"
+    }
+}

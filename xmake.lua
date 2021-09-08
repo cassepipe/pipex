@@ -1,0 +1,6 @@
+target("pipex")
+	set_kind("binary")
+	add_files("src/*.c")
+	add_cflags("-g3")
+	add_ldflags("-fsanitize=address")
+	add_includedirs("inc")
