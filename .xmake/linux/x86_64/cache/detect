@@ -2,48 +2,27 @@
     find_program_gcc_arch_x86_64_plat_linux_checktoolld = {
         ["g++"] = "/usr/bin/g++"
     },
-    find_program_gcc_arch_x86_64_plat_linux_checktoolcc = {
-        gcc = "/usr/bin/gcc"
-    },
     find_program = {
-        gcc = "/usr/bin/gcc",
-        ccache = "/usr/bin/ccache",
         ["/usr/bin/g++"] = "/usr/bin/g++",
+        ["/usr/bin/gcc"] = "/usr/bin/gcc",
         dmd = false,
         gdc = "/home/linuxbrew/.linuxbrew/bin/gdc",
-        ["/usr/bin/gcc"] = "/usr/bin/gcc",
+        lldb = "/home/linuxbrew/.linuxbrew/bin/lldb",
+        ldc2 = false,
         zig = "/home/linuxbrew/.linuxbrew/bin/zig",
-        ldc2 = false
+        gcc = "/usr/bin/gcc",
+        ccache = "/usr/bin/ccache"
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolcc = {
+        gcc = "/usr/bin/gcc"
     },
     find_programver = {
         ["/usr/bin/gcc"] = "9.3.0-17ubuntu1",
         ["/usr/bin/g++"] = "9.3.0-17ubuntu1"
     },
-    ["lib.detect.has_flags"] = {
-        ["linux_x86_64_/usr/bin/g++_9.3.0-17ubuntu1_ld_ldflags_-m64 -m64_-fsanitize=address"] = true,
-        ["linux_x86_64_/usr/bin/gcc_9.3.0-17ubuntu1_cc_cflags__-g3"] = true,
-        ["linux_x86_64_/usr/bin/gcc_9.3.0-17ubuntu1_cc_cxflags_-m64_-MMD -MF"] = true,
-        ["linux_x86_64_/usr/bin/gcc_9.3.0-17ubuntu1_cc_cxflags_-m64_-fdiagnostics-color=always"] = true
-    },
     ["detect.tools.gcc.has_flags"] = {
         ["/usr/bin/gcc_9.3.0-17ubuntu1"] = {
-            ["-Xlinker"] = true,
-            ["-B"] = true,
-            ["-E"] = true,
-            ["-pie"] = true,
-            ["--param"] = true,
-            ["-shared"] = true,
-            ["-pipe"] = true,
-            ["-S"] = true,
-            ["--help"] = true,
-            ["-c"] = true,
-            ["--version"] = true,
-            ["-time"] = true,
-            ["-o"] = true,
-            ["-Xassembler"] = true,
             ["-Xpreprocessor"] = true,
-            ["-x"] = true,
-            ["-pass-exit-codes"] = true,
             ["--target-help"] = true,
             ["-dumpspecs"] = true,
             ["-dumpversion"] = true,
@@ -58,7 +37,29 @@
             ["-print-sysroot-headers-suffix"] = true,
             ["-v"] = true,
             ["-save-temps"] = true,
-            ["-no-canonical-prefixes"] = true
+            ["-no-canonical-prefixes"] = true,
+            ["-x"] = true,
+            ["-pass-exit-codes"] = true,
+            ["-time"] = true,
+            ["-Xlinker"] = true,
+            ["-B"] = true,
+            ["-E"] = true,
+            ["-pie"] = true,
+            ["--param"] = true,
+            ["-shared"] = true,
+            ["-pipe"] = true,
+            ["-S"] = true,
+            ["--help"] = true,
+            ["-c"] = true,
+            ["--version"] = true,
+            ["-o"] = true,
+            ["-Xassembler"] = true
         }
+    },
+    ["lib.detect.has_flags"] = {
+        ["linux_x86_64_/usr/bin/gcc_9.3.0-17ubuntu1_cc_cxflags_-m64_-fdiagnostics-color=always"] = true,
+        ["linux_x86_64_/usr/bin/g++_9.3.0-17ubuntu1_ld_ldflags_-m64 -m64_-fsanitize=address"] = true,
+        ["linux_x86_64_/usr/bin/gcc_9.3.0-17ubuntu1_cc_cflags__-g3"] = true,
+        ["linux_x86_64_/usr/bin/gcc_9.3.0-17ubuntu1_cc_cxflags_-m64_-MMD -MF"] = true
     }
 }

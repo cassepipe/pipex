@@ -6,7 +6,7 @@
 #    By: tpouget <cassepipe@ymail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/23 16:37:33 by tpouget           #+#    #+#              #
-#    Updated: 2021/09/09 01:00:45 by tpouget          ###   ########.fr        #
+#    Updated: 2021/09/11 17:06:48 by tpouget          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,30 +26,37 @@ SOURCES			=	$(notdir $(wildcard src/*.c))
 
 INC/HEADERS		=	$(wildcard inc/*.h)
 
-OBJ/OBJECTS		=	$(patsubst %.c, obj/%.o, $(SOURCES))
+OBJ/OBJECTS		=	$(filter-out obj/main.o obj/test.o, $(patsubst %.c, obj/%.o, $(SOURCES)))
 	
 
 #	Rules
 
 all:			$(NAME)
 
-$(NAME):		${OBJ/OBJECTS} #libft/libft.a
-				${CC} ${SANITIZER} ${OBJ/OBJECTS} -o $@ #-lft -Llibft
+$(NAME):		${OBJ/OBJECTS} obj/main.o libft/libft.a
+				${CC} ${SANITIZER} obj/main.o ${OBJ/OBJECTS} -o $@ -lft -Llibft
+
+test:			${OBJ/OBJECTS} obj/test.o libft/libft.a
+				${CC} ${SANITIZER} obj/test.o ${OBJ/OBJECTS} -o $@ -lcriterion -lft -Llibft
+				./test
 
 obj/%.o:		src/%.c	${INC/HEADERS} Makefile | obj
 				${CC} ${CFLAGS} -c $< -o $@
 obj:			
 				mkdir obj
 
-#libft/libft.a:
-#                make -C libft
+libft/libft.a:
+				make -C libft
 
 clean:			
 				rm -rf obj
+				make -C libft clean
 
 fclean:			clean
 				rm -rf $(NAME)
 				rm -rf build
+				rm test
+				make -C libft fclean
 
 re:				fclean all
 

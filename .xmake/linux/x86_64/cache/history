@@ -21,6 +21,9 @@
         "xmake r pipex 1 2 3",
         "xmake r pipex 1 2 3 4",
         "xmake ",
-        "xmake -r"
+        "xmake -r",
+        "xmake ",
+        "xmake r pipex 1 2 3",
+        "xmake r -d pipex 1 2 3"
     }
 }
