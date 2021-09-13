@@ -71,11 +71,15 @@ init_format	libft/ft_printf/format_utils.c	/^void	init_format(struct s_parameter
 is_in	libft/ft_printf/format_utils.c	/^int	is_in(char c, const char *charset)$/;"	f
 is_in_set	libft/ft_strtrim.c	/^static int	is_in_set(char c, char const *set)$/;"	f	file:
 leftpad	libft/ft_printf/pad.c	/^void	leftpad(char **str, char c, size_t n)$/;"	f
-main	src/main.c	/^int	main(int ac, char **av)$/;"	f
+main1	src/main.c	/^int	main1(int ac, char **av)$/;"	f
+main2	src/main.c	/^int	main2(int ac, char **av)$/;"	f
+main2	src/main.c	7;"	d	file:
+main3	src/main.c	/^int	main3(int argc, char** argv)$/;"	f
 nbr_repr	libft/ft_printf/repr.c	/^char	*nbr_repr(long nbr, struct s_parameters *format, ssize_t *size)$/;"	f
 next_sep	libft/ft_split.c	/^static const char	*next_sep(const char *str, char sep)$/;"	f	file:
 next_word	libft/ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
 parse_str_into_format	libft/ft_printf/format_utils.c	/^void	*parse_str_into_format(const char *fs,$/;"	f
+print_execv	src/main.c	/^static void print_execv(char **arg_list)$/;"	f	file:
 ptr_repr	libft/ft_printf/repr.c	/^char	*ptr_repr(void *ptr, struct s_parameters *format, ssize_t *size)$/;"	f
 redirect_all_stdout	src/test.c	/^void redirect_all_stdout(void)$/;"	f
 rightpad	libft/ft_printf/pad.c	/^void	rightpad(char **str, char c, size_t n)$/;"	f

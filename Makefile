@@ -6,7 +6,7 @@
 #    By: tpouget <cassepipe@ymail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/23 16:37:33 by tpouget           #+#    #+#              #
-#    Updated: 2021/09/11 17:06:48 by tpouget          ###   ########.fr        #
+#    Updated: 2021/09/13 20:14:11 by bajaba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ clean:
 fclean:			clean
 				rm -rf $(NAME)
 				rm -rf build
-				rm test
+				rm -rf test
 				make -C libft fclean
 
 re:				fclean all

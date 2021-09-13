@@ -2,4 +2,6 @@ build
 obj
 pipex
 test
+libft/*.{o,a}
+.cache
 
