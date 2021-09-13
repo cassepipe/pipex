@@ -6,7 +6,7 @@
 #    By: tpouget <cassepipe@ymail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/23 16:37:33 by tpouget           #+#    #+#              #
-#    Updated: 2021/09/13 20:14:11 by bajaba           ###   ########.fr        #
+#    Updated: 2021/09/13 20:40:06 by bajaba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME			=	pipex
 
 CC	  		  	=	clang
 
-CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc
+CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc -Wno-unused-function
 
 SANITIZER		=	-fsanitize=address
 

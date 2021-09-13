@@ -2,6 +2,9 @@ build
 obj
 pipex
 test
-libft/*.{o,a}
+libft/**.o
+libft/libft.a
+src/.*.c.swp
+src/.*.h.swp
 .cache
 
