@@ -6,7 +6,7 @@
 #    By: tpouget <cassepipe@ymail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/23 16:37:33 by tpouget           #+#    #+#              #
-#    Updated: 2021/09/13 20:40:06 by bajaba           ###   ########.fr        #
+#    Updated: 2021/09/15 14:36:55 by bajaba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ NAME			=	pipex
 
 CC	  		  	=	clang
 
-CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc -Wno-unused-function
+CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc -Ilibft -Wno-unused-function
 
-SANITIZER		=	-fsanitize=address
+SANITIZER		=	-fsanitize=address -Wno-unused-function
 
 SOURCES			=	$(notdir $(wildcard src/*.c))
 
@@ -34,6 +34,7 @@ OBJ/OBJECTS		=	$(filter-out obj/main.o obj/test.o, $(patsubst %.c, obj/%.o, $(SO
 all:			$(NAME)
 
 $(NAME):		${OBJ/OBJECTS} obj/main.o libft/libft.a
+				@echo "Linking..."
 				${CC} ${SANITIZER} obj/main.o ${OBJ/OBJECTS} -o $@ -lft -Llibft
 
 test:			${OBJ/OBJECTS} obj/test.o libft/libft.a

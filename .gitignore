@@ -7,4 +7,5 @@ libft/libft.a
 src/.*.c.swp
 src/.*.h.swp
 .cache
-
+infile
+outfile

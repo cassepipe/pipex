@@ -56,7 +56,7 @@ ft_strncmp	ft_strncmp.c	/^int	ft_strncmp(const char *l, const char *r, size_t n)
 ft_strndup	ft_strndup.c	/^char	*ft_strndup(const char *s, size_t n)$/;"	f
 ft_strnstr	ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f
 ft_strrchr	ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f
-ft_strtrim	ft_strtrim.c	/^char		*ft_strtrim(char const *s1, char const *set)$/;"	f
+ft_strtrim	ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f
 ft_substr	ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_tolower	ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
 ft_toupper	ft_toupper.c	/^int	ft_toupper(int c)$/;"	f

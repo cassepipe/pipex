@@ -71,7 +71,7 @@ init_format	libft/ft_printf/format_utils.c	/^void	init_format(struct s_parameter
 is_in	libft/ft_printf/format_utils.c	/^int	is_in(char c, const char *charset)$/;"	f
 is_in_set	libft/ft_strtrim.c	/^static int	is_in_set(char c, char const *set)$/;"	f	file:
 leftpad	libft/ft_printf/pad.c	/^void	leftpad(char **str, char c, size_t n)$/;"	f
-main	src/main.c	/^int	main(int ac, char **av)$/;"	f
+main	src/main.c	/^int	main(int ac, char **av, char **envp)$/;"	f
 nbr_repr	libft/ft_printf/repr.c	/^char	*nbr_repr(long nbr, struct s_parameters *format, ssize_t *size)$/;"	f
 next_sep	libft/ft_split.c	/^static const char	*next_sep(const char *str, char sep)$/;"	f	file:
 next_word	libft/ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
