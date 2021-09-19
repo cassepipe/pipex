@@ -16,7 +16,7 @@
 
 NAME			=	pipex
 
-CC	  		  	=	clang
+CC	  		  	=	gcc
 
 CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc -Ilibft -Wno-unused-function
 
