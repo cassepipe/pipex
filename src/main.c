@@ -26,6 +26,7 @@ int	main(int ac, char **av, char **envp)
 	int		outfile_fd;
 	char	**cmd1;
 	char	**cmd2;
+	int 	i;
 
 	for (int i = 0; i < ac; i++)
 		printf("av[%i] = %s\n", i, av[i]);
@@ -52,13 +53,16 @@ int	main(int ac, char **av, char **envp)
 		dup2(pipefd[1], 1);
 		close(pipefd[1]);
 
-		//Retrivieng the args
+		//Retrieving the args
 		cmd1 = ft_split(av[2], ' ');
 
 		if (execve(cmd1[0], cmd1, envp) == -1)
+		{
 			perror("execve 1:");
+		}
+		for (i = 0; cmd1[i] != NULL; i++)
+			free(cmd1[i]);
 		free(cmd1);
-		exit(0);
 	}
 	else
 	{
@@ -77,7 +81,11 @@ int	main(int ac, char **av, char **envp)
 		cmd2 = ft_split(av[3], ' ');
 
 		if (execve(cmd2[0], cmd2, envp) == -1)
+		{
 			perror("execve 2:");
+		}
+		for (i = 0; cmd2[i] != NULL; i++)
+			free(cmd2[i]);
 		free(cmd2);
 	}
 	return (0);
