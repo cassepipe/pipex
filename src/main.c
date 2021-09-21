@@ -48,9 +48,9 @@ int	main(int ac, char **av, char **envp)
 		// Append ./
 
 		//Get the command path
-		printf("*cmd1 = %s\n", *cmd1);
+		/*printf("*cmd1 = %s\n", *cmd1);*/
 		cmd1[0] = get_command_path(cmd1[0], get_pwd_var(envp), pathvar_entries);
-		printf("*cmd1 = %s\n", *cmd1);
+		/*printf("*cmd1 = %s\n", *cmd1);*/
 
 		if (execve(cmd1[0], cmd1, envp) == -1)
 		{

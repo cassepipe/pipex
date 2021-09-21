@@ -6,7 +6,7 @@
 
 char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)
 {
-	printf("get_command_path:cmd = %s\n", cmd);
+	/*printf("get_command_path:cmd = %s\n", cmd);*/
 	//We have an abosulte path
 	if (cmd[0] == '/')
 	{

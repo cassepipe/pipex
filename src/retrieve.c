@@ -16,7 +16,7 @@ char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries)
 {
 	char *cmd_path;
 
-	printf("retrieve_command_in_pathvar:cmd = %s\n", cmd);
+	/*printf("retrieve_command_in_pathvar:cmd = %s\n", cmd);*/
 	while (pathvar_entries)
 	{
 		cmd_path = ft_strjoin3(*pathvar_entries,"/", cmd);
