@@ -3,20 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
-#include "main.h"
+#include <stdbool.h>
 #include "libft.h"
-
-static void print_execv(char **arg_list)
-{
-	if (arg_list)
-	{
-		while (*arg_list)
-		{
-			printf("%s\n", *arg_list);
-			arg_list++;
-		}
-	}
-}
+#include "main.h"
 
 int	main(int ac, char **av, char **envp)
 {
@@ -26,10 +15,7 @@ int	main(int ac, char **av, char **envp)
 	int		outfile_fd;
 	char	**cmd1;
 	char	**cmd2;
-	int 	i;
-
-	for (int i = 0; i < ac; i++)
-		printf("av[%i] = %s\n", i, av[i]);
+	char	**pathvar_entries;
 
 	if ((infile_fd = open(av[1], O_RDONLY)) < 0)
 		perror("open ");
@@ -37,6 +23,9 @@ int	main(int ac, char **av, char **envp)
 		perror("open ");
 	if (pipe(pipefd) == -1)
 		perror("pipe ");
+
+	pathvar_entries = ft_split(get_path_var(envp), ':');
+
 	child_pid = fork();
 	if (child_pid == -1)
 		perror("fork ");
@@ -56,13 +45,23 @@ int	main(int ac, char **av, char **envp)
 		//Retrieving the args
 		cmd1 = ft_split(av[2], ' ');
 
+		// Append ./
+
+		//Get the command path
+		printf("*cmd1 = %s\n", *cmd1);
+		cmd1[0] = get_command_path(cmd1[0], get_pwd_var(envp), pathvar_entries);
+		printf("*cmd1 = %s\n", *cmd1);
+
 		if (execve(cmd1[0], cmd1, envp) == -1)
 		{
 			perror("execve 1:");
 		}
-		for (i = 0; cmd1[i] != NULL; i++)
+		for (int i = 0; cmd1[i] != NULL; i++)
 			free(cmd1[i]);
 		free(cmd1);
+		for (int i = 0; pathvar_entries[i] != NULL; i++)
+			free(pathvar_entries[i]);
+		free(pathvar_entries);
 	}
 	else
 	{
@@ -80,13 +79,21 @@ int	main(int ac, char **av, char **envp)
 		//Retrieving args
 		cmd2 = ft_split(av[3], ' ');
 
+		// Append ./
+
+		//Get the command path
+		cmd2[0] = get_command_path(cmd2[0], get_pwd_var(envp), pathvar_entries);
+
 		if (execve(cmd2[0], cmd2, envp) == -1)
 		{
 			perror("execve 2:");
 		}
-		for (i = 0; cmd2[i] != NULL; i++)
+		for (int i = 0; cmd2[i] != NULL; i++)
 			free(cmd2[i]);
 		free(cmd2);
+		for (int i = 0; pathvar_entries[i] != NULL; i++)
+			free(pathvar_entries[i]);
+		free(pathvar_entries);
 	}
 	return (0);
 }

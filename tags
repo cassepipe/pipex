@@ -5,8 +5,10 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 Test	src/test.c	/^Test(errors, exit_code, .init=redirect_all_stdout)$/;"	f
+Test	src/test.c	/^Test(get_pwd_var, right_var) {$/;"	f
 Test	src/test.c	/^Test(sample, test) {$/;"	f
 arrange_format	libft/ft_printf/format_utils.c	/^void	arrange_format(struct s_parameters *format)$/;"	f
+buffer	src/test.c	/^char buffer[PATH_MAX];$/;"	v
 char_repr	libft/ft_printf/repr.c	/^char	*char_repr(unsigned char c, struct s_parameters *format, ssize_t *size)$/;"	f
 diralloc	libft/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 error	src/test.c	/^int error(void)$/;"	f
@@ -50,6 +52,8 @@ ft_strchr	libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f
 ft_strcmp	libft/ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f
 ft_strdup	libft/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f
 ft_strjoin	libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
+ft_strjoin	libft/ft_strjoin3.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
+ft_strjoin3	src/strjoin3.c	/^char	*ft_strjoin3(char const *s1, char const *s2, char const *s3)$/;"	f
 ft_strjoin_and_free	libft/ft_strjoin_and_free.c	/^char	*ft_strjoin_and_free(char const *s1, char const *s2)$/;"	f
 ft_strlcat	libft/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f
 ft_strlcpy	libft/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f
@@ -64,8 +68,11 @@ ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start,
 ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 ft_vdprintf	libft/ft_printf/ft_vdprintf.c	/^int	ft_vdprintf(int fd, const char *fs, va_list args)$/;"	f
+get_command_path	src/get_command_path.c	/^char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)$/;"	f
 get_next_line	libft/get_next_line.c	/^int	get_next_line(int fd, char **line)$/;"	f
 get_next_line_with_newline	libft/get_next_line.c	/^int	get_next_line_with_newline(int fd, char **line)$/;"	f
+get_path_var	src/getvar.c	/^char	*get_path_var(char **envp)$/;"	f
+get_pwd_var	src/getvar.c	/^char	*get_pwd_var(char **envp)$/;"	f
 grow_buffer_until_newline	libft/get_next_line.c	/^static int	grow_buffer_until_newline(int fd, char **buffer,$/;"	f	file:
 init_format	libft/ft_printf/format_utils.c	/^void	init_format(struct s_parameters *format)$/;"	f
 is_in	libft/ft_printf/format_utils.c	/^int	is_in(char c, const char *charset)$/;"	f
@@ -76,9 +83,10 @@ nbr_repr	libft/ft_printf/repr.c	/^char	*nbr_repr(long nbr, struct s_parameters *
 next_sep	libft/ft_split.c	/^static const char	*next_sep(const char *str, char sep)$/;"	f	file:
 next_word	libft/ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
 parse_str_into_format	libft/ft_printf/format_utils.c	/^void	*parse_str_into_format(const char *fs,$/;"	f
-print_execv	src/main.c	/^static void print_execv(char **arg_list)$/;"	f	file:
 ptr_repr	libft/ft_printf/repr.c	/^char	*ptr_repr(void *ptr, struct s_parameters *format, ssize_t *size)$/;"	f
 redirect_all_stdout	src/test.c	/^void redirect_all_stdout(void)$/;"	f
+retrieve_command_in_pathvar	src/retrieve.c	/^char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries)$/;"	f
+retrieve_file_path_in_cwd	src/retrieve.c	/^char	*retrieve_file_path_in_cwd(char *cwd, char* cmd)$/;"	f
 rightpad	libft/ft_printf/pad.c	/^void	rightpad(char **str, char c, size_t n)$/;"	f
 str_repr	libft/ft_printf/repr.c	/^char	*str_repr(char *s, struct s_parameters *format, ssize_t *size)$/;"	f
 to_the_power_of	libft/ft_printf/ft_lutoa_base.c	/^static unsigned long	to_the_power_of(unsigned long n, unsigned long p)$/;"	f	file:

@@ -1,7 +1,16 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 #include "../libft/libft.h"
+#include <linux/limits.h>
+#include <unistd.h>
+#include "getvar.h"
 
+char buffer[PATH_MAX];
+
+Test(get_pwd_var, right_var) {
+	cr_log_warn("getwd returned %s", getwd(buffer));
+    cr_expect(get_pwd_var(envp) == getwd(buffer));
+}
 
 Test(sample, test) {
     cr_expect(ft_strlen("Test") == 4, "Expected \"Test\" to have a length of 4.");
