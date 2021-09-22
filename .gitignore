@@ -10,3 +10,5 @@ src/.*.h.swp
 infile
 outfile
 .xmake
+assets
+outs

@@ -16,11 +16,11 @@
 
 NAME			=	pipex
 
-CC	  		  	=	gcc
+CC	  		  	=	clang
 
 CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc -Ilibft -Wno-unused-function
 
-SANITIZER		=	-fsanitize=address -Wno-unused-function
+SANITIZER		=	 -Wno-unused-function -fsanitize=address
 
 SOURCES			=	$(notdir $(wildcard src/*.c))
 
@@ -60,5 +60,8 @@ fclean:			clean
 				make -C libft fclean
 
 re:				fclean all
+
+love:			$(NAME)
+				../pipex-tester/run.sh
 
 .PHONY:			all clean fclean re test 

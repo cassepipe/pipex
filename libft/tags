@@ -47,6 +47,7 @@ ft_strchr	ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f
 ft_strcmp	ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f
 ft_strdup	ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f
 ft_strjoin	ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
+ft_strjoin	ft_strjoin3.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
 ft_strjoin_and_free	ft_strjoin_and_free.c	/^char	*ft_strjoin_and_free(char const *s1, char const *s2)$/;"	f
 ft_strlcat	ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f
 ft_strlcpy	ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f

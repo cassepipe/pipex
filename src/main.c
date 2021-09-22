@@ -7,6 +7,31 @@
 #include "libft.h"
 #include "main.h"
 
+void	redirect_stdout_fileno_to_pipe_write_end(int pipe_write_end_fd)
+{
+		dup2(pipe_write_end_fd, STDOUT_FILENO);
+		close(pipe_write_end_fd);
+}
+
+void	redirect_stdin_fileno_to_pipe_read_end(int pipe_read_end_fd)
+{
+		dup2(pipe_read_end_fd, STDIN_FILENO);
+		close(pipe_read_end_fd);
+}
+
+void	redirect_stdin_fileno_to_fd(int infile_fd)
+{
+		dup2(infile_fd, STDIN_FILENO);
+		close(infile_fd);
+}
+
+void	redirect_stdout_fileno_to_fd(int outfile_fd)
+{
+		dup2(outfile_fd, STDOUT_FILENO);
+		close(outfile_fd);
+}
+
+
 int	main(int ac, char **av, char **envp)
 {
 	int		pipefd[2];
@@ -35,33 +60,23 @@ int	main(int ac, char **av, char **envp)
 		close(pipefd[0]);
 
 		//grep reads from fd 0 so 0 must point to infile
-		dup2(infile_fd, 0);
-		close(infile_fd);
+		redirect_stdin_fileno_to_fd(infile_fd);
 
 		//grep writes to fd 1 so 1 must point to the write end of the pipe
-		dup2(pipefd[1], 1);
-		close(pipefd[1]);
+		redirect_stdout_fileno_to_pipe_write_end(pipefd[1]);
 
 		//Retrieving the args
 		cmd1 = ft_split(av[2], ' ');
 
-		// Append ./
-
 		//Get the command path
-		/*printf("*cmd1 = %s\n", *cmd1);*/
 		cmd1[0] = get_command_path(cmd1[0], get_pwd_var(envp), pathvar_entries);
-		/*printf("*cmd1 = %s\n", *cmd1);*/
 
 		if (execve(cmd1[0], cmd1, envp) == -1)
 		{
 			perror("execve 1:");
 		}
-		for (int i = 0; cmd1[i] != NULL; i++)
-			free(cmd1[i]);
-		free(cmd1);
-		for (int i = 0; pathvar_entries[i] != NULL; i++)
-			free(pathvar_entries[i]);
-		free(pathvar_entries);
+		free_null_terminated_array_of_arrays(cmd1);
+		free_null_terminated_array_of_arrays(pathvar_entries);
 	}
 	else
 	{
@@ -69,17 +84,13 @@ int	main(int ac, char **av, char **envp)
 		close(pipefd[1]);
 
 		//wc reads from 0 so 0 must point to the read end of the pipe
-		dup2(pipefd[0], 0);
-		close(pipefd[0]);
+		redirect_stdin_fileno_to_pipe_read_end(pipefd[0]);
 
 		//wc write to the 1 so 1 must point to the outfile
-		dup2(outfile_fd, 1);
-		close(outfile_fd);
+		redirect_stdout_fileno_to_fd(outfile_fd);
 
 		//Retrieving args
 		cmd2 = ft_split(av[3], ' ');
-
-		// Append ./
 
 		//Get the command path
 		cmd2[0] = get_command_path(cmd2[0], get_pwd_var(envp), pathvar_entries);
@@ -88,12 +99,9 @@ int	main(int ac, char **av, char **envp)
 		{
 			perror("execve 2:");
 		}
-		for (int i = 0; cmd2[i] != NULL; i++)
-			free(cmd2[i]);
-		free(cmd2);
-		for (int i = 0; pathvar_entries[i] != NULL; i++)
-			free(pathvar_entries[i]);
-		free(pathvar_entries);
+		free_null_terminated_array_of_arrays(cmd2);
+		free_null_terminated_array_of_arrays(pathvar_entries);
+
 	}
 	return (0);
 }
