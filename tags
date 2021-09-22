@@ -12,6 +12,7 @@ buffer	src/test.c	/^char buffer[PATH_MAX];$/;"	v
 char_repr	libft/ft_printf/repr.c	/^char	*char_repr(unsigned char c, struct s_parameters *format, ssize_t *size)$/;"	f
 diralloc	libft/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 error	src/test.c	/^int error(void)$/;"	f
+execute_pipeline	src/main.c	/^void	execute_pipeline(char **argv, int read_from, int write_to, char **envp)$/;"	f
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
 ft_10powerof	libft/ft_itoa.c	/^static long	ft_10powerof(long n)$/;"	f	file:
 ft_10powerof	libft/ft_putnbr_fd.c	/^static long	ft_10powerof(long n)$/;"	f	file:
