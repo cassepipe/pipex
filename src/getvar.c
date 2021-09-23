@@ -7,7 +7,6 @@ char	*get_path_var(char **envp)
 {
 	while (*envp)
 	{
-		/*printf("%s\n", *envp);*/
 		if (!ft_strncmp(*envp, "PATH=", 5))
 		{
 			return (*envp + 5);

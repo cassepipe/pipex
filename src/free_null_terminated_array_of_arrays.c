@@ -2,7 +2,7 @@
 
 void	free_null_terminated_array_of_arrays(char **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i] != NULL)
