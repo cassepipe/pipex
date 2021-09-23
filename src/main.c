@@ -4,8 +4,10 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <stdbool.h>
+#include <assert.h>
 #include "libft.h"
 #include "main.h"
+
 
 void	execute_pipeline(char **argv, int read_from, int write_to, char **envp)
 {
@@ -13,9 +15,8 @@ void	execute_pipeline(char **argv, int read_from, int write_to, char **envp)
 	redirect_fd_to_fd(1, write_to);
 	if (execve(argv[0], argv, envp) == -1)
 	{
-		perror("execve 1:");
+		perror("execve:");
 	}
-	free_null_terminated_array_of_arrays(argv);
 }
 
 int	main(int ac, char **av, char **envp)
@@ -46,7 +47,6 @@ int	main(int ac, char **av, char **envp)
 		cmd1 = ft_split(av[2], ' ');
 		cmd1[0] = get_command_path(cmd1[0], get_pwd_var(envp), pathvar_entries);
 		execute_pipeline(cmd1, infile_fd, pipefd[1], envp);
-		free_null_terminated_array_of_arrays(pathvar_entries);
 	}
 	else
 	{
@@ -54,8 +54,7 @@ int	main(int ac, char **av, char **envp)
 		cmd2 = ft_split(av[3], ' ');
 		cmd2[0] = get_command_path(cmd2[0], get_pwd_var(envp), pathvar_entries);
 		execute_pipeline(cmd2, pipefd[0], outfile_fd, envp);
-		free_null_terminated_array_of_arrays(pathvar_entries);
-
 	}
+	assert(2 + 2 == 5);
 	return (0);
 }
