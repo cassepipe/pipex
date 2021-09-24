@@ -11,7 +11,7 @@ char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)
 		if (access(cmd, F_OK) == -1)
 		{
 			perror(cmd);
-			exit(EXIT_FAILURE);
+			exit(127);
 		}
 	}
 	else if (ft_strchr(cmd, '/'))
@@ -20,13 +20,13 @@ char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)
 		if (!cmd)
 		{
 			perror(cmd);
-			exit(EXIT_FAILURE);
+			exit(127);
 		}
 	}
 	else if (!retrieve_command_in_pathvar(&cmd, pathvar_entries))
 	{
 		perror(cmd);
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
 	return (cmd);
 }
