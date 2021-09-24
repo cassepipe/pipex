@@ -32,14 +32,14 @@ static void	pipe_or_die(int *pipe_fds)
 void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
 {
 	char	**pathvar_entries;
-	char	**cmd;
+	char	**cmdv;
 
 	pathvar_entries = ft_split(get_path_var(env), ':');
-	cmd = ft_split(cmd_str, ' ');
-	cmd[0] = get_command_path(cmd[0], get_pwd_var(env), pathvar_entries);
+	cmdv = ft_split(cmd_str, ' ');
+	cmdv[0] = get_command_path(cmdv[0], get_pwd_var(env), pathvar_entries);
 	redirect_fd_to_fd(0, read_from);
 	redirect_fd_to_fd(1, write_to);
-	if (execve(cmd[0], cmd, env) == -1)
+	if (execve(cmdv[0], cmdv, env) == -1)
 	{
 		perror("execve:");
 	}

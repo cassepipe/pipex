@@ -7,86 +7,159 @@
 Test	src/test.c	/^Test(errors, exit_code, .init=redirect_all_stdout)$/;"	f
 Test	src/test.c	/^Test(get_pwd_var, right_var) {$/;"	f
 Test	src/test.c	/^Test(sample, test) {$/;"	f
+arrange_format	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@format_utils.c	/^void	arrange_format(struct s_parameters *format)$/;"	f
 arrange_format	libft/ft_printf/format_utils.c	/^void	arrange_format(struct s_parameters *format)$/;"	f
 buffer	src/test.c	/^char buffer[PATH_MAX];$/;"	v
+char_repr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@repr.c	/^char	*char_repr(unsigned char c, struct s_parameters *format, ssize_t *size)$/;"	f
 char_repr	libft/ft_printf/repr.c	/^char	*char_repr(unsigned char c, struct s_parameters *format, ssize_t *size)$/;"	f
+diralloc	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 diralloc	libft/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 error	src/test.c	/^int error(void)$/;"	f
+execute_pipeline	.ccls-cache/@home@bajaba@Desktop@pipex/src@main.c	/^void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)$/;"	f
 execute_pipeline	src/main.c	/^void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)$/;"	f
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
+ft_10powerof	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_itoa.c	/^static long	ft_10powerof(long n)$/;"	f	file:
+ft_10powerof	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_putnbr_fd.c	/^static long	ft_10powerof(long n)$/;"	f	file:
 ft_10powerof	libft/ft_itoa.c	/^static long	ft_10powerof(long n)$/;"	f	file:
 ft_10powerof	libft/ft_putnbr_fd.c	/^static long	ft_10powerof(long n)$/;"	f	file:
+ft_atoi	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f
 ft_atoi	libft/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f
+ft_bzero	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f
 ft_bzero	libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f
+ft_calloc	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_calloc.c	/^void	*ft_calloc(size_t count, size_t size)$/;"	f
 ft_calloc	libft/ft_calloc.c	/^void	*ft_calloc(size_t count, size_t size)$/;"	f
+ft_dprintf	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@ft_dprintf.c	/^int	ft_dprintf(int fd, const char *formatted_string, ...)$/;"	f
 ft_dprintf	libft/ft_printf/ft_dprintf.c	/^int	ft_dprintf(int fd, const char *formatted_string, ...)$/;"	f
+ft_isalnum	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f
 ft_isalnum	libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f
+ft_isalpha	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f
 ft_isalpha	libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f
+ft_isascii	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_isascii.c	/^int	ft_isascii(int c)$/;"	f
 ft_isascii	libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f
+ft_isdigit	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f
 ft_isdigit	libft/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f
+ft_isprint	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_isprint.c	/^int	ft_isprint(int c)$/;"	f
 ft_isprint	libft/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f
+ft_isspace	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_isspace.c	/^int	ft_isspace(int c)$/;"	f
 ft_isspace	libft/ft_isspace.c	/^int	ft_isspace(int c)$/;"	f
+ft_itoa	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f
 ft_itoa	libft/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f
+ft_lstadd_back	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f
 ft_lstadd_back	libft/ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f
+ft_lstadd_front	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f
 ft_lstadd_front	libft/ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f
+ft_lstclear	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f
 ft_lstclear	libft/ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f
+ft_lstdelone	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstdelone.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f
 ft_lstdelone	libft/ft_lstdelone.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f
+ft_lstiter	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f
 ft_lstiter	libft/ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f
+ft_lstlast	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f
 ft_lstlast	libft/ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f
+ft_lstmap	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f
 ft_lstmap	libft/ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f
+ft_lstnew	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/;"	f
 ft_lstnew	libft/ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/;"	f
+ft_lstsize	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/;"	f
 ft_lstsize	libft/ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/;"	f
+ft_lutoa_base	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@ft_lutoa_base.c	/^char	*ft_lutoa_base(unsigned long n, const char *base_str)$/;"	f
 ft_lutoa_base	libft/ft_printf/ft_lutoa_base.c	/^char	*ft_lutoa_base(unsigned long n, const char *base_str)$/;"	f
+ft_lutoa_format	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@repr.c	/^static char	*ft_lutoa_format(long nbr, int type)$/;"	f	file:
 ft_lutoa_format	libft/ft_printf/repr.c	/^static char	*ft_lutoa_format(long nbr, int type)$/;"	f	file:
+ft_memccpy	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_memccpy.c	/^void	*ft_memccpy(void *dest, const void *src, int c, size_t n)$/;"	f
 ft_memccpy	libft/ft_memccpy.c	/^void	*ft_memccpy(void *dest, const void *src, int c, size_t n)$/;"	f
+ft_memchr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f
 ft_memchr	libft/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f
+ft_memcmp	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f
 ft_memcmp	libft/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f
+ft_memcpy	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f
 ft_memcpy	libft/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f
+ft_memmove	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_memmove.c	/^void	*ft_memmove(void *dst, const void *src, size_t len)$/;"	f
 ft_memmove	libft/ft_memmove.c	/^void	*ft_memmove(void *dst, const void *src, size_t len)$/;"	f
+ft_memset	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f
 ft_memset	libft/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f
+ft_printf	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@ft_printf.c	/^int	ft_printf(const char *formatted_string, ...)$/;"	f
 ft_printf	libft/ft_printf/ft_printf.c	/^int	ft_printf(const char *formatted_string, ...)$/;"	f
+ft_putchar_fd	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f
 ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f
+ft_putendl_fd	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f
 ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f
+ft_putnbr_fd	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f
 ft_putnbr_fd	libft/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f
+ft_putstr_fd	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f
 ft_putstr_fd	libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f
+ft_split	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f
 ft_split	libft/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f
+ft_strchr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f
 ft_strchr	libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f
+ft_strcmp	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f
 ft_strcmp	libft/ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f
+ft_strdup	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f
 ft_strdup	libft/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f
+ft_strjoin	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
 ft_strjoin	libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
 ft_strjoin	libft/ft_strjoin3.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
 ft_strjoin3	src/strjoin3.c	/^char	*ft_strjoin3(char const *s1, char const *s2, char const *s3)$/;"	f
+ft_strjoin_and_free	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strjoin_and_free.c	/^char	*ft_strjoin_and_free(char const *s1, char const *s2)$/;"	f
 ft_strjoin_and_free	libft/ft_strjoin_and_free.c	/^char	*ft_strjoin_and_free(char const *s1, char const *s2)$/;"	f
+ft_strlcat	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f
 ft_strlcat	libft/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f
+ft_strlcpy	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f
 ft_strlcpy	libft/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f
+ft_strlen	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strlen.c	/^size_t	ft_strlen(const char *s)$/;"	f
 ft_strlen	libft/ft_strlen.c	/^size_t	ft_strlen(const char *s)$/;"	f
+ft_strmapi	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f
 ft_strmapi	libft/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f
+ft_strncmp	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strncmp.c	/^int	ft_strncmp(const char *l, const char *r, size_t n)$/;"	f
 ft_strncmp	libft/ft_strncmp.c	/^int	ft_strncmp(const char *l, const char *r, size_t n)$/;"	f
+ft_strndup	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strndup.c	/^char	*ft_strndup(const char *s, size_t n)$/;"	f
 ft_strndup	libft/ft_strndup.c	/^char	*ft_strndup(const char *s, size_t n)$/;"	f
+ft_strnstr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f
 ft_strnstr	libft/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f
+ft_strrchr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f
 ft_strrchr	libft/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f
+ft_strtrim	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f
 ft_strtrim	libft/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f
+ft_substr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
+ft_tolower	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
 ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
+ft_toupper	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
+ft_vdprintf	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@ft_vdprintf.c	/^int	ft_vdprintf(int fd, const char *fs, va_list args)$/;"	f
 ft_vdprintf	libft/ft_printf/ft_vdprintf.c	/^int	ft_vdprintf(int fd, const char *fs, va_list args)$/;"	f
 get_command_path	src/get_command_path.c	/^char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)$/;"	f
+get_next_line	.ccls-cache/@home@bajaba@Desktop@pipex/libft@get_next_line.c	/^int	get_next_line(int fd, char **line)$/;"	f
 get_next_line	libft/get_next_line.c	/^int	get_next_line(int fd, char **line)$/;"	f
+get_next_line_with_newline	.ccls-cache/@home@bajaba@Desktop@pipex/libft@get_next_line.c	/^int	get_next_line_with_newline(int fd, char **line)$/;"	f
 get_next_line_with_newline	libft/get_next_line.c	/^int	get_next_line_with_newline(int fd, char **line)$/;"	f
 get_path_var	src/getvar.c	/^char	*get_path_var(char **envp)$/;"	f
 get_pwd_var	src/getvar.c	/^char	*get_pwd_var(char **envp)$/;"	f
+grow_buffer_until_newline	.ccls-cache/@home@bajaba@Desktop@pipex/libft@get_next_line.c	/^static int	grow_buffer_until_newline(int fd, char **buffer,$/;"	f	file:
 grow_buffer_until_newline	libft/get_next_line.c	/^static int	grow_buffer_until_newline(int fd, char **buffer,$/;"	f	file:
+init_format	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@format_utils.c	/^void	init_format(struct s_parameters *format)$/;"	f
 init_format	libft/ft_printf/format_utils.c	/^void	init_format(struct s_parameters *format)$/;"	f
+is_in	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@format_utils.c	/^int	is_in(char c, const char *charset)$/;"	f
 is_in	libft/ft_printf/format_utils.c	/^int	is_in(char c, const char *charset)$/;"	f
+is_in_set	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_strtrim.c	/^static int	is_in_set(char c, char const *set)$/;"	f	file:
 is_in_set	libft/ft_strtrim.c	/^static int	is_in_set(char c, char const *set)$/;"	f	file:
+leftpad	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@pad.c	/^void	leftpad(char **str, char c, size_t n)$/;"	f
 leftpad	libft/ft_printf/pad.c	/^void	leftpad(char **str, char c, size_t n)$/;"	f
+main	.ccls-cache/@home@bajaba@Desktop@pipex/src@main.c	/^int	main(int ac, char **av, char **envp)$/;"	f
 main	src/main.c	/^int	main(int ac, char **av, char **envp)$/;"	f
+nbr_repr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@repr.c	/^char	*nbr_repr(long nbr, struct s_parameters *format, ssize_t *size)$/;"	f
 nbr_repr	libft/ft_printf/repr.c	/^char	*nbr_repr(long nbr, struct s_parameters *format, ssize_t *size)$/;"	f
+next_sep	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_split.c	/^static const char	*next_sep(const char *str, char sep)$/;"	f	file:
 next_sep	libft/ft_split.c	/^static const char	*next_sep(const char *str, char sep)$/;"	f	file:
+next_word	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
 next_word	libft/ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
+open_or_die	.ccls-cache/@home@bajaba@Desktop@pipex/src@main.c	/^static int	open_or_die(char *filename, int flags, mode_t mode)$/;"	f	file:
 open_or_die	src/main.c	/^static int	open_or_die(char *filename, int flags, mode_t mode)$/;"	f	file:
+parse_str_into_format	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@format_utils.c	/^void	*parse_str_into_format(const char *fs,$/;"	f
 parse_str_into_format	libft/ft_printf/format_utils.c	/^void	*parse_str_into_format(const char *fs,$/;"	f
+pipe_or_die	.ccls-cache/@home@bajaba@Desktop@pipex/src@main.c	/^static void	pipe_or_die(int *pipe_fds)$/;"	f	file:
 pipe_or_die	src/main.c	/^static void	pipe_or_die(int *pipe_fds)$/;"	f	file:
+ptr_repr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@repr.c	/^char	*ptr_repr(void *ptr, struct s_parameters *format, ssize_t *size)$/;"	f
 ptr_repr	libft/ft_printf/repr.c	/^char	*ptr_repr(void *ptr, struct s_parameters *format, ssize_t *size)$/;"	f
 redirect_all_stdout	src/test.c	/^void redirect_all_stdout(void)$/;"	f
 redirect_fd_to_fd	src/redirections.c	/^void	redirect_fd_to_fd(int fd1, int fd2)$/;"	f
@@ -94,9 +167,13 @@ redirect_stdin_fileno_to_fd	src/redirections.c	/^void	redirect_stdin_fileno_to_f
 redirect_stdin_fileno_to_pipe_read_end	src/redirections.c	/^void	redirect_stdin_fileno_to_pipe_read_end(int pipe_read_end_fd)$/;"	f
 redirect_stdout_fileno_to_fd	src/redirections.c	/^void	redirect_stdout_fileno_to_fd(int outfile_fd)$/;"	f
 redirect_stdout_fileno_to_pipe_write_end	src/redirections.c	/^void	redirect_stdout_fileno_to_pipe_write_end(int pipe_write_end_fd)$/;"	f
-retrieve_command_in_pathvar	src/retrieve.c	/^char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries)$/;"	f
+retrieve_command_in_pathvar	src/retrieve.c	/^char	*retrieve_command_in_pathvar(char **cmd, char **pathvar_entries)$/;"	f
 retrieve_file_path_in_cwd	src/retrieve.c	/^char	*retrieve_file_path_in_cwd(char *cwd, char *cmd)$/;"	f
+rightpad	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@pad.c	/^void	rightpad(char **str, char c, size_t n)$/;"	f
 rightpad	libft/ft_printf/pad.c	/^void	rightpad(char **str, char c, size_t n)$/;"	f
+str_repr	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@repr.c	/^char	*str_repr(char *s, struct s_parameters *format, ssize_t *size)$/;"	f
 str_repr	libft/ft_printf/repr.c	/^char	*str_repr(char *s, struct s_parameters *format, ssize_t *size)$/;"	f
+to_the_power_of	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@ft_lutoa_base.c	/^static unsigned long	to_the_power_of(unsigned long n, unsigned long p)$/;"	f	file:
 to_the_power_of	libft/ft_printf/ft_lutoa_base.c	/^static unsigned long	to_the_power_of(unsigned long n, unsigned long p)$/;"	f	file:
+write_format	.ccls-cache/@home@bajaba@Desktop@pipex/libft@ft_printf@format_utils.c	/^ssize_t	write_format(int fd,$/;"	f
 write_format	libft/ft_printf/format_utils.c	/^ssize_t	write_format(int fd,$/;"	f

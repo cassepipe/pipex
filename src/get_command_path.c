@@ -10,7 +10,7 @@ char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)
 	{
 		if (access(cmd, F_OK) == -1)
 		{
-			perror("No such file directory :");
+			perror(cmd);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -19,13 +19,13 @@ char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)
 		cmd = retrieve_file_path_in_cwd(cwd, cmd);
 		if (!cmd)
 		{
-			perror("No such file directory :");
+			perror(cmd);
 			exit(EXIT_FAILURE);
 		}
 	}
-	else if (!(cmd = retrieve_command_in_pathvar(cmd, pathvar_entries)))
+	else if (!retrieve_command_in_pathvar(&cmd, pathvar_entries))
 	{
-		perror("Command not found :");
+		perror(cmd);
 		exit(EXIT_FAILURE);
 	}
 	return (cmd);

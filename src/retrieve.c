@@ -12,21 +12,23 @@ char	*retrieve_file_path_in_cwd(char *cwd, char *cmd)
 	return (file_path);
 }
 
-char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries)
+char	*retrieve_command_in_pathvar(char **cmd, char **pathvar_entries)
 {
 	char	*cmd_path;
 
 	while (pathvar_entries)
 	{
-		cmd_path = ft_strjoin3(*pathvar_entries, "/", cmd);
+		cmd_path = ft_strjoin3(*pathvar_entries, "/", *cmd);
 		if (!cmd_path)
 		{
-			perror("ft_strjoin :");
+			printf ("%s, %s\n", *pathvar_entries, cmd_path);
+			perror("ft_strjoin3 :");
 			exit(EXIT_FAILURE);
 		}
 		if (access(cmd_path, F_OK) == 0)
 		{
-			free((char *)cmd);
+			free((char *)*cmd);
+			*cmd = cmd_path;
 			return (cmd_path);
 		}
 		free(cmd_path);
