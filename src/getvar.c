@@ -20,9 +20,9 @@ char	*get_pwd_var(char **envp)
 {
 	while (*envp)
 	{
-		if (!ft_strncmp(*envp, "PWD=", 3))
+		if (!ft_strncmp(*envp, "PWD=", 4))
 		{
-			return (*envp + 3);
+			return (*envp + 4);
 		}
 		envp++;
 	}

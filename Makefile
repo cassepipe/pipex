@@ -20,7 +20,7 @@ CC	  		  	=	clang
 
 CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -Isrc -Ilibft -Wno-unused-function
 
-SANITIZER		=	 -Wno-unused-function -fsanitize=address
+SANITIZER		=	#-fsanitize=address
 
 SOURCES			=	$(notdir $(wildcard src/*.c))
 
@@ -61,7 +61,8 @@ fclean:			clean
 
 re:				fclean all
 
-love:			$(NAME)
+love:			
+				make re SANITIZER=""
 				../pipex-tester/run.sh
 
 .PHONY:			all clean fclean re test 

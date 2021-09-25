@@ -12,3 +12,5 @@ outfile
 .xmake
 assets
 outs
+follow_fork_child.py
+makeheaders

@@ -71,6 +71,7 @@ ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start,
 ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 ft_vdprintf	libft/ft_printf/ft_vdprintf.c	/^int	ft_vdprintf(int fd, const char *fs, va_list args)$/;"	f
+g_usage	src/main.c	/^static const char	g_usage[] = {$/;"	v	file:
 get_command_path	src/get_command_path.c	/^char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)$/;"	f
 get_next_line	libft/get_next_line.c	/^int	get_next_line(int fd, char **line)$/;"	f
 get_next_line_with_newline	libft/get_next_line.c	/^int	get_next_line_with_newline(int fd, char **line)$/;"	f
@@ -80,7 +81,6 @@ grow_buffer_until_newline	libft/get_next_line.c	/^static int	grow_buffer_until_n
 init_format	libft/ft_printf/format_utils.c	/^void	init_format(struct s_parameters *format)$/;"	f
 is_in	libft/ft_printf/format_utils.c	/^int	is_in(char c, const char *charset)$/;"	f
 is_in_set	libft/ft_strtrim.c	/^static int	is_in_set(char c, char const *set)$/;"	f	file:
-is_writale_or_die	src/main.c	/^static void	is_writale_or_die(char *filename)$/;"	f	file:
 leftpad	libft/ft_printf/pad.c	/^void	leftpad(char **str, char c, size_t n)$/;"	f
 main	src/main.c	/^int	main(int ac, char **av, char **envp)$/;"	f
 nbr_repr	libft/ft_printf/repr.c	/^char	*nbr_repr(long nbr, struct s_parameters *format, ssize_t *size)$/;"	f
@@ -88,6 +88,7 @@ next_sep	libft/ft_split.c	/^static const char	*next_sep(const char *str, char se
 next_word	libft/ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
 parse_str_into_format	libft/ft_printf/format_utils.c	/^void	*parse_str_into_format(const char *fs,$/;"	f
 pipe_or_die	src/main.c	/^static void	pipe_or_die(int *pipe_fds)$/;"	f	file:
+print_usage_exit	src/main.c	/^static void	print_usage_exit(void)$/;"	f	file:
 ptr_repr	libft/ft_printf/repr.c	/^char	*ptr_repr(void *ptr, struct s_parameters *format, ssize_t *size)$/;"	f
 redirect_all_stdout	src/test.c	/^void redirect_all_stdout(void)$/;"	f
 redirect_fd_to_fd	src/redirections.c	/^void	redirect_fd_to_fd(int fd1, int fd2)$/;"	f
@@ -95,7 +96,7 @@ redirect_stdin_fileno_to_fd	src/redirections.c	/^void	redirect_stdin_fileno_to_f
 redirect_stdin_fileno_to_pipe_read_end	src/redirections.c	/^void	redirect_stdin_fileno_to_pipe_read_end(int pipe_read_end_fd)$/;"	f
 redirect_stdout_fileno_to_fd	src/redirections.c	/^void	redirect_stdout_fileno_to_fd(int outfile_fd)$/;"	f
 redirect_stdout_fileno_to_pipe_write_end	src/redirections.c	/^void	redirect_stdout_fileno_to_pipe_write_end(int pipe_write_end_fd)$/;"	f
-retrieve_command_in_pathvar	src/retrieve.c	/^char	*retrieve_command_in_pathvar(char **cmd, char **pathvar_entries)$/;"	f
+retrieve_command_in_pathvar	src/retrieve.c	/^char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries)$/;"	f
 retrieve_file_path_in_cwd	src/retrieve.c	/^char	*retrieve_file_path_in_cwd(char *cwd, char *cmd)$/;"	f
 rightpad	libft/ft_printf/pad.c	/^void	rightpad(char **str, char c, size_t n)$/;"	f
 str_repr	libft/ft_printf/repr.c	/^char	*str_repr(char *s, struct s_parameters *format, ssize_t *size)$/;"	f
