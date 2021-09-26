@@ -6,6 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 diralloc	src/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 execute_pipeline	src/main.c	/^void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)$/;"	f
+file_is_ok_or_die	src/main.c	/^static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)$/;"	f	file:
 free_all	src/ft_split.c	/^static void	free_all(char **dir, long i)$/;"	f	file:
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
 ft_open	src/main.c	/^static int	ft_open(char *filename, int flags, mode_t mode)$/;"	f	file:
@@ -18,9 +19,10 @@ ft_strlcpy	src/utils.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t si
 ft_strlen	src/utils.c	/^size_t	ft_strlen(const char *s)$/;"	f
 ft_strncmp	src/utils2.c	/^int	ft_strncmp(const char *l, const char *r, size_t n)$/;"	f
 ft_strndup	src/utils2.c	/^char	*ft_strndup(const char *s, size_t n)$/;"	f
+g_cmd_not_found	src/main.c	/^static const char	g_cmd_not_found[] = {$/;"	v	file:
 g_no_path_var_msg	src/getvar.c	/^static const char	g_no_path_var_msg[] = {$/;"	v	file:
 g_no_pwd_var_msg	src/getvar.c	/^static const char	g_no_pwd_var_msg[] = {$/;"	v	file:
-g_usage	src/main.c	/^static const char	g_usage[] = {$/;"	v	file:
+g_usage	src/print_usage_exit.c	/^static const char	g_usage[] = {$/;"	v	file:
 get_command_path	src/get_command_path.c	/^char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)$/;"	f
 get_path_var	src/getvar.c	/^char	*get_path_var(char **envp)$/;"	f
 get_pwd_var	src/getvar.c	/^char	*get_pwd_var(char **envp)$/;"	f
@@ -28,7 +30,7 @@ main	src/main.c	/^int	main(int ac, char **av, char **envp)$/;"	f
 next_sep	src/ft_split.c	/^static const char	*next_sep(const char *str, char sep)$/;"	f	file:
 next_word	src/ft_split.c	/^static const char	*next_word(const char *str, char sep)$/;"	f	file:
 pipe_or_die	src/main.c	/^static void	pipe_or_die(int *pipe_fds)$/;"	f	file:
-print_usage_exit	src/main.c	/^static void	print_usage_exit(void)$/;"	f	file:
+print_usage_exit	src/print_usage_exit.c	/^void	print_usage_exit(void)$/;"	f
 redirect_fd_to_fd	src/redirections.c	/^void	redirect_fd_to_fd(int fd1, int fd2)$/;"	f
 redirect_stdin_fileno_to_fd	src/redirections.c	/^void	redirect_stdin_fileno_to_fd(int infile_fd)$/;"	f
 redirect_stdin_fileno_to_pipe_read_end	src/redirections.c	/^void	redirect_stdin_fileno_to_pipe_read_end(int pipe_read_end_fd)$/;"	f

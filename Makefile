@@ -27,6 +27,7 @@ SOURCES			=	free_null_terminated_array_of_arrays.c \
 					get_command_path.c \
 					getvar.c \
 					main.c \
+					print_usage_exit.c \
 					redirections.c \
 					retrieve.c \
 					strjoin3.c \

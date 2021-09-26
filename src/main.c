@@ -6,16 +6,9 @@
 #include <string.h>
 #include "pipex.h"
 
-static const char	g_usage[] = {
-	"Usage : "
-	"./pipex infile \"cmd_1 [--option]...\" \"cmd_2 [--option]...\" outfile\n"
+static const char	g_cmd_not_found[] = {
+	"command not found: "
 };
-
-static void	print_usage_exit(void)
-{
-	write(STDOUT_FILENO, g_usage, sizeof(g_usage));
-	exit(EXIT_FAILURE);
-}
 
 static int	ft_open(char *filename, int flags, mode_t mode)
 {
@@ -44,19 +37,13 @@ static void	pipe_or_die(int *pipe_fds)
 	}
 }
 
-void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
+static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)
 {
-	char	**pathvar_entries;
-	char	**cmdv;
-
-	redirect_fd_to_fd(0, read_from);
-	redirect_fd_to_fd(1, write_to);
-	pathvar_entries = ft_split(get_path_var(env), ':');
-	cmdv = ft_split(cmd_str, ' ');
-	cmdv[0] = get_command_path(cmdv[0], get_pwd_var(env), pathvar_entries);
 	if (access(cmdv[0], X_OK) == -1)
 	{
 		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
+		if (cmdv[0][0] != '/')
+			write(STDERR_FILENO, g_cmd_not_found, sizeof(g_cmd_not_found));
 		perror(cmdv[0]);
 		free_null_terminated_array_of_arrays(cmdv);
 		free_null_terminated_array_of_arrays(pathvar_entries);
@@ -67,6 +54,19 @@ void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
 		else
 			exit(EXIT_FAILURE);
 	}
+}
+
+void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
+{
+	char	**pathvar_entries;
+	char	**cmdv;
+
+	redirect_fd_to_fd(0, read_from);
+	redirect_fd_to_fd(1, write_to);
+	pathvar_entries = ft_split(get_path_var(env), ':');
+	cmdv = ft_split(cmd_str, ' ');
+	cmdv[0] = get_command_path(cmdv[0], get_pwd_var(env), pathvar_entries);
+	file_is_ok_or_die(cmdv, pathvar_entries);
 	execve(cmdv[0], cmdv, env);
 	free_null_terminated_array_of_arrays(cmdv);
 	free_null_terminated_array_of_arrays(pathvar_entries);
