@@ -1,8 +1,4 @@
-#include <stdlib.h>
-#include <errno.h>
-#include <unistd.h>
-#include "libft.h"
-#include "get_command_path.h"
+#include "pipex.h"
 
 char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)
 {

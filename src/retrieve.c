@@ -1,5 +1,6 @@
-#include "retrieve.h"
-#include "libft.h"
+#include <stdio.h>
+#include <unistd.h>
+#include "pipex.h"
 
 char	*retrieve_file_path_in_cwd(char *cwd, char *cmd)
 {

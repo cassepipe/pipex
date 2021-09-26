@@ -2,11 +2,9 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sysexits.h>
-#include "libft.h"
-#include "main.h"
 #include <errno.h>
 #include <string.h>
+#include "pipex.h"
 
 static const char	g_usage[] = {
 	"Usage : "
@@ -72,7 +70,6 @@ void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
 	execve(cmdv[0], cmdv, env);
 	free_null_terminated_array_of_arrays(cmdv);
 	free_null_terminated_array_of_arrays(pathvar_entries);
-	exit(EXIT_SUCCESS);
 }
 
 int	main(int ac, char **av, char **envp)
@@ -100,5 +97,5 @@ int	main(int ac, char **av, char **envp)
 		close(pipefd[1]);
 		execute_pipeline(av[3], pipefd[0], outfile_fd, envp);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

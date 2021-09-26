@@ -1,7 +1,5 @@
-#include "libft.h"
-#include "getvar.h"
-
-#include <string.h>
+#include <unistd.h>
+#include "pipex.h"
 
 static const char	g_no_path_var_msg[] = {
 	"pipex: Could not find PATH in the environmment variables\n"

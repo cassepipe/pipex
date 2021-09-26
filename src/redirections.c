@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "pipex.h"
 
 void	redirect_fd_to_fd(int fd1, int fd2)
 {

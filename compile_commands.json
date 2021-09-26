@@ -1,15 +1,114 @@
 [
   {
     "arguments": [
-      "/usr/bin/gcc",
+      "/home/linuxbrew/.linuxbrew/bin/clang",
       "-Wall",
       "-Wextra",
       "-g3",
       "-pedantic",
       "-Iinc",
-      "-Isrc",
-      "-Ilibft",
-      "-Wno-unused-function",
+      "-c",
+      "-o",
+      "obj/getvar.o",
+      "src/getvar.c"
+    ],
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/getvar.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/getvar.o"
+  },
+  {
+    "arguments": [
+      "/home/linuxbrew/.linuxbrew/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-pedantic",
+      "-Iinc",
+      "-c",
+      "-o",
+      "obj/retrieve.o",
+      "src/retrieve.c"
+    ],
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/retrieve.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/retrieve.o"
+  },
+  {
+    "arguments": [
+      "/home/linuxbrew/.linuxbrew/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-pedantic",
+      "-Iinc",
+      "-c",
+      "-o",
+      "obj/utils2.o",
+      "src/utils2.c"
+    ],
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/utils2.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/utils2.o"
+  },
+  {
+    "arguments": [
+      "/home/linuxbrew/.linuxbrew/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-pedantic",
+      "-Iinc",
+      "-c",
+      "-o",
+      "obj/strjoin3.o",
+      "src/strjoin3.c"
+    ],
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/strjoin3.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/strjoin3.o"
+  },
+  {
+    "arguments": [
+      "/home/linuxbrew/.linuxbrew/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-pedantic",
+      "-Iinc",
+      "-c",
+      "-o",
+      "obj/free_null_terminated_array_of_arrays.o",
+      "src/free_null_terminated_array_of_arrays.c"
+    ],
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/free_null_terminated_array_of_arrays.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/free_null_terminated_array_of_arrays.o"
+  },
+  {
+    "arguments": [
+      "/home/linuxbrew/.linuxbrew/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-pedantic",
+      "-Iinc",
+      "-c",
+      "-o",
+      "obj/ft_split.o",
+      "src/ft_split.c"
+    ],
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/ft_split.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/ft_split.o"
+  },
+  {
+    "arguments": [
+      "/home/linuxbrew/.linuxbrew/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-pedantic",
+      "-Iinc",
       "-c",
       "-o",
       "obj/main.o",
@@ -25,14 +124,16 @@
       "-Wall",
       "-Wextra",
       "-g3",
+      "-pedantic",
+      "-Iinc",
       "-c",
       "-o",
-      "ft_atoi.o",
-      "ft_atoi.c"
+      "obj/redirections.o",
+      "src/redirections.c"
     ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_atoi.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_atoi.o"
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/redirections.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/redirections.o"
   },
   {
     "arguments": [
@@ -40,14 +141,16 @@
       "-Wall",
       "-Wextra",
       "-g3",
+      "-pedantic",
+      "-Iinc",
       "-c",
       "-o",
-      "ft_strlcat.o",
-      "ft_strlcat.c"
+      "obj/get_command_path.o",
+      "src/get_command_path.c"
     ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strlcat.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strlcat.o"
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/get_command_path.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/get_command_path.o"
   },
   {
     "arguments": [
@@ -55,793 +158,15 @@
       "-Wall",
       "-Wextra",
       "-g3",
+      "-pedantic",
+      "-Iinc",
       "-c",
       "-o",
-      "ft_strlcpy.o",
-      "ft_strlcpy.c"
+      "obj/utils.o",
+      "src/utils.c"
     ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strlcpy.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strlcpy.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strcmp.o",
-      "ft_strcmp.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strcmp.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strcmp.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strncmp.o",
-      "ft_strncmp.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strncmp.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strncmp.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_bzero.o",
-      "ft_bzero.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_bzero.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_bzero.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_calloc.o",
-      "ft_calloc.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_calloc.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_calloc.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_isalnum.o",
-      "ft_isalnum.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_isalnum.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_isalnum.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_isalpha.o",
-      "ft_isalpha.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_isalpha.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_isalpha.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_isascii.o",
-      "ft_isascii.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_isascii.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_isascii.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_isdigit.o",
-      "ft_isdigit.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_isdigit.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_isdigit.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_isprint.o",
-      "ft_isprint.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_isprint.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_isprint.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_isspace.o",
-      "ft_isspace.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_isspace.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_isspace.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_memset.o",
-      "ft_memset.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_memset.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_memset.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_memcpy.o",
-      "ft_memcpy.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_memcpy.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_memcpy.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_memchr.o",
-      "ft_memchr.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_memchr.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_memchr.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_memccpy.o",
-      "ft_memccpy.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_memccpy.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_memccpy.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_memmove.o",
-      "ft_memmove.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_memmove.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_memmove.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_memcmp.o",
-      "ft_memcmp.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_memcmp.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_memcmp.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strchr.o",
-      "ft_strchr.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strchr.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strchr.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strdup.o",
-      "ft_strdup.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strdup.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strdup.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strndup.o",
-      "ft_strndup.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strndup.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strndup.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strlen.o",
-      "ft_strlen.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strlen.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strlen.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strrchr.o",
-      "ft_strrchr.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strrchr.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strrchr.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_tolower.o",
-      "ft_tolower.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_tolower.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_tolower.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_toupper.o",
-      "ft_toupper.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_toupper.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_toupper.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strnstr.o",
-      "ft_strnstr.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strnstr.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strnstr.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_substr.o",
-      "ft_substr.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_substr.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_substr.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strjoin.o",
-      "ft_strjoin.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strjoin.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strjoin.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strjoin_and_free.o",
-      "ft_strjoin_and_free.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strjoin_and_free.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strjoin_and_free.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strtrim.o",
-      "ft_strtrim.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strtrim.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strtrim.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_split.o",
-      "ft_split.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_split.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_split.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_itoa.o",
-      "ft_itoa.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_itoa.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_itoa.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_strmapi.o",
-      "ft_strmapi.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_strmapi.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_strmapi.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_putchar_fd.o",
-      "ft_putchar_fd.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_putchar_fd.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_putchar_fd.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_putstr_fd.o",
-      "ft_putstr_fd.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_putstr_fd.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_putstr_fd.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_putendl_fd.o",
-      "ft_putendl_fd.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_putendl_fd.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_putendl_fd.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_putnbr_fd.o",
-      "ft_putnbr_fd.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_putnbr_fd.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_putnbr_fd.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstnew.o",
-      "ft_lstnew.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstnew.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstnew.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstsize.o",
-      "ft_lstsize.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstsize.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstsize.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstadd_front.o",
-      "ft_lstadd_front.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstadd_front.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstadd_front.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstadd_back.o",
-      "ft_lstadd_back.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstadd_back.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstadd_back.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstlast.o",
-      "ft_lstlast.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstlast.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstlast.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstdelone.o",
-      "ft_lstdelone.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstdelone.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstdelone.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstclear.o",
-      "ft_lstclear.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstclear.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstclear.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstiter.o",
-      "ft_lstiter.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstiter.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstiter.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_lstmap.o",
-      "ft_lstmap.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_lstmap.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_lstmap.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "get_next_line.o",
-      "get_next_line.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/get_next_line.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/get_next_line.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/repr.o",
-      "ft_printf/repr.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/repr.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/repr.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/pad.o",
-      "ft_printf/pad.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/pad.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/pad.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/ft_vdprintf.o",
-      "ft_printf/ft_vdprintf.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_vdprintf.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_vdprintf.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/ft_printf.o",
-      "ft_printf/ft_printf.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_printf.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_printf.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/ft_lutoa_base.o",
-      "ft_printf/ft_lutoa_base.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_lutoa_base.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_lutoa_base.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/ft_dprintf.o",
-      "ft_printf/ft_dprintf.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_dprintf.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/ft_dprintf.o"
-  },
-  {
-    "arguments": [
-      "/home/linuxbrew/.linuxbrew/bin/clang",
-      "-Wall",
-      "-Wextra",
-      "-g3",
-      "-c",
-      "-o",
-      "ft_printf/format_utils.o",
-      "ft_printf/format_utils.c"
-    ],
-    "directory": "/home/bajaba/Desktop/pipex/libft",
-    "file": "/home/bajaba/Desktop/pipex/libft/ft_printf/format_utils.c",
-    "output": "/home/bajaba/Desktop/pipex/libft/ft_printf/format_utils.o"
+    "directory": "/home/bajaba/Desktop/pipex",
+    "file": "/home/bajaba/Desktop/pipex/src/utils.c",
+    "output": "/home/bajaba/Desktop/pipex/obj/utils.o"
   }
 ]
