@@ -22,9 +22,18 @@ CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc
 
 SANITIZER		=	#-fsanitize=address
 
-SOURCES			=	$(notdir $(wildcard src/*.c))
+SOURCES			=	free_null_terminated_array_of_arrays.c \
+					ft_split.c \
+					get_command_path.c \
+					getvar.c \
+					main.c \
+					redirections.c \
+					retrieve.c \
+					strjoin3.c \
+					utils2.c \
+					utils.c 
 
-INC/HEADERS		=	$(wildcard inc/*.h)
+INC/HEADERS		=	inc/pipex.h
 
 OBJ/OBJECTS		=	$(patsubst %.c, obj/%.o, $(SOURCES))
 	
