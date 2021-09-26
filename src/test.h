@@ -2,8 +2,6 @@
 #undef INTERFACE
 int error(void);
 void redirect_all_stdout(void);
-char *get_pwd_var(char **envp);
-Test(get_pwd_var,right_var);
+Test(access,x_ok);
 extern Test(errors,exit_code,.init;
-Test(sample,test);
-extern char buffer[PATH_MAX];
+extern char g_buffer[PATH_MAX];

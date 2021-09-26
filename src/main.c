@@ -2,9 +2,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/wait.h>
-#include <stdbool.h>
-#include <assert.h>
+#include <sysexits.h>
 #include "libft.h"
 #include "main.h"
 #include <errno.h>
@@ -28,6 +26,7 @@ static int	ft_open(char *filename, int flags, mode_t mode)
 	fd = open(filename, flags, mode);
 	if (fd == -1)
 	{
+		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
 		perror(filename);
 		exit(EXIT_FAILURE);
 	}
@@ -40,7 +39,11 @@ static void	pipe_or_die(int *pipe_fds)
 
 	r = pipe(pipe_fds);
 	if (r == -1)
+	{
+		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
 		perror("pipe");
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
@@ -48,39 +51,28 @@ void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
 	char	**pathvar_entries;
 	char	**cmdv;
 
+	redirect_fd_to_fd(0, read_from);
+	redirect_fd_to_fd(1, write_to);
 	pathvar_entries = ft_split(get_path_var(env), ':');
 	cmdv = ft_split(cmd_str, ' ');
 	cmdv[0] = get_command_path(cmdv[0], get_pwd_var(env), pathvar_entries);
-	if (!cmdv[0])
-	{
-		perror(cmdv[0]);
-		free_null_terminated_array_of_arrays(cmdv);
-		free_null_terminated_array_of_arrays(pathvar_entries);
-		exit(EXIT_FAILURE);
-	}
-	if (access(cmdv[0], F_OK) == -1)
-	{
-		perror(cmdv[0]);
-		free_null_terminated_array_of_arrays(cmdv);
-		free_null_terminated_array_of_arrays(pathvar_entries);
-		exit(127);
-	}
 	if (access(cmdv[0], X_OK) == -1)
 	{
+		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
 		perror(cmdv[0]);
 		free_null_terminated_array_of_arrays(cmdv);
 		free_null_terminated_array_of_arrays(pathvar_entries);
-		exit(126);
+		if (errno == ENOENT)
+			exit(127);
+		else if (errno == EACCES)
+			exit(126);
+		else
+			exit(EXIT_FAILURE);
 	}
-	redirect_fd_to_fd(0, read_from);
-	redirect_fd_to_fd(1, write_to);
-	if (execve(cmdv[0], cmdv, env) == -1)
-	{
-		perror("execve");
-	}
+	execve(cmdv[0], cmdv, env);
 	free_null_terminated_array_of_arrays(cmdv);
 	free_null_terminated_array_of_arrays(pathvar_entries);
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }
 
 int	main(int ac, char **av, char **envp)

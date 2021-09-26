@@ -4,14 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-Test	src/test.c	/^Test(errors, exit_code, .init=redirect_all_stdout)$/;"	f
-Test	src/test.c	/^Test(get_pwd_var, right_var) {$/;"	f
-Test	src/test.c	/^Test(sample, test) {$/;"	f
+Test	src/test.c	/^Test(access, x_ok)$/;"	f
+Test	src/test.c	/^Test(errors, exit_code, .init = redirect_all_stdout)$/;"	f
 arrange_format	libft/ft_printf/format_utils.c	/^void	arrange_format(struct s_parameters *format)$/;"	f
-buffer	src/test.c	/^char buffer[PATH_MAX];$/;"	v
 char_repr	libft/ft_printf/repr.c	/^char	*char_repr(unsigned char c, struct s_parameters *format, ssize_t *size)$/;"	f
 diralloc	libft/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
-error	src/test.c	/^int error(void)$/;"	f
+error	src/test.c	/^int	error(void)$/;"	f
 execute_pipeline	src/main.c	/^void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)$/;"	f
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
 ft_10powerof	libft/ft_itoa.c	/^static long	ft_10powerof(long n)$/;"	f	file:
@@ -71,6 +69,9 @@ ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start,
 ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 ft_vdprintf	libft/ft_printf/ft_vdprintf.c	/^int	ft_vdprintf(int fd, const char *fs, va_list args)$/;"	f
+g_buffer	src/test.c	/^char	g_buffer[PATH_MAX];$/;"	v
+g_no_path_var_msg	src/getvar.c	/^static const char	g_no_path_var_msg[] = {$/;"	v	file:
+g_no_pwd_var_msg	src/getvar.c	/^static const char	g_no_pwd_var_msg[] = {$/;"	v	file:
 g_usage	src/main.c	/^static const char	g_usage[] = {$/;"	v	file:
 get_command_path	src/get_command_path.c	/^char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)$/;"	f
 get_next_line	libft/get_next_line.c	/^int	get_next_line(int fd, char **line)$/;"	f

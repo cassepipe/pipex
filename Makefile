@@ -39,7 +39,6 @@ $(NAME):		${OBJ/OBJECTS} obj/main.o libft/libft.a
 
 test:			${OBJ/OBJECTS} obj/test.o libft/libft.a
 				${CC} ${SANITIZER} obj/test.o ${OBJ/OBJECTS} -o $@ -lcriterion -lft -Llibft
-				./test
 
 obj/%.o:		src/%.c	${INC/HEADERS} Makefile | obj
 				${CC} ${CFLAGS} -c $< -o $@

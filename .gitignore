@@ -7,6 +7,7 @@ libft/libft.a
 src/.*.c.swp
 src/.*.h.swp
 .cache
+.ccls-cache/
 infile
 outfile
 .xmake

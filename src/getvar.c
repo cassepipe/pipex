@@ -3,6 +3,16 @@
 
 #include <string.h>
 
+static const char	g_no_path_var_msg[] = {
+	"pipex: Could not find PATH in the environmment variables\n"
+	"Aborting...\n"
+};
+
+static const char	g_no_pwd_var_msg[] = {
+	"pipex: Could not find PWD in the environmment variables\n"
+	"Aborting...\n"
+};
+
 char	*get_path_var(char **envp)
 {
 	while (*envp)
@@ -13,7 +23,8 @@ char	*get_path_var(char **envp)
 		}
 		envp++;
 	}
-	return (NULL);
+	write(STDERR_FILENO, g_no_path_var_msg, sizeof(g_no_path_var_msg));
+	exit(EXIT_FAILURE);
 }
 
 char	*get_pwd_var(char **envp)
@@ -26,5 +37,6 @@ char	*get_pwd_var(char **envp)
 		}
 		envp++;
 	}
-	return (NULL);
+	write(STDERR_FILENO, g_no_pwd_var_msg, sizeof(g_no_pwd_var_msg));
+	exit(EXIT_FAILURE);
 }
