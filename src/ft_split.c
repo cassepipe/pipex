@@ -25,6 +25,7 @@ static const char	*next_word(const char *str, char sep)
 static char	**diralloc(const char *s, char c)
 {
 	size_t	size;
+	char	**ret;
 
 	if (!s)
 		return (NULL);
@@ -36,7 +37,10 @@ static char	**diralloc(const char *s, char c)
 		s = next_word(s, c);
 		size++;
 	}
-	return (malloc(size * sizeof(char *)));
+	ret = malloc(size * sizeof(char *));
+	if (!ret)
+		exit(EXIT_FAILURE);
+	return (ret);
 }
 
 char	**ft_split(char const *s, char c)
