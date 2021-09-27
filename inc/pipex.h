@@ -17,6 +17,7 @@ void	redirect_stdin_fileno_to_fd(int infile_fd);
 void	redirect_stdout_fileno_to_fd(int outfile_fd);
 char	*retrieve_file_path_in_cwd(char *cwd, char *cmd);
 char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries);
+char	*ft_empty_string(void);
 char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 char	*ft_strchr(const char *s, int c);
 int		ft_strncmp(const char *l, const char *r, size_t n);

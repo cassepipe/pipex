@@ -43,16 +43,6 @@ static char	**diralloc(const char *s, char c)
 	return (ret);
 }
 
-static char	*ft_empty_string(void)
-{
-	char	*ret;
-
-	ret = malloc(1 * sizeof(char));
-	if (!ret)
-		exit(EXIT_FAILURE);
-	return (ret);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char		**dir;

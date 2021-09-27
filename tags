@@ -9,7 +9,7 @@ execute_pipeline	src/main.c	/^void	execute_pipeline(char *cmd_str, int read_from
 file_is_ok_or_die	src/main.c	/^static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)$/;"	f	file:
 free_all	src/ft_split.c	/^static void	free_all(char **dir, long i)$/;"	f	file:
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
-ft_empty_string	src/ft_split.c	/^static char	*ft_empty_string(void)$/;"	f	file:
+ft_empty_string	src/utils.c	/^char	*ft_empty_string(void)$/;"	f
 ft_open	src/main.c	/^static int	ft_open(char *filename, int flags, mode_t mode)$/;"	f	file:
 ft_split	src/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f
 ft_strchr	src/utils2.c	/^char	*ft_strchr(const char *s, int c)$/;"	f

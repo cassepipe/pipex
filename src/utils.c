@@ -62,3 +62,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(joined, s2, len + 1);
 	return (joined);
 }
+
+char	*ft_empty_string(void)
+{
+	char	*ret;
+
+	ret = malloc(1 * sizeof(char));
+	if (!ret)
+		exit(EXIT_FAILURE);
+	return (ret);
+}
