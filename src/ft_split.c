@@ -43,6 +43,16 @@ static char	**diralloc(const char *s, char c)
 	return (ret);
 }
 
+static char	*ft_empty_string(void)
+{
+	char	*ret;
+
+	ret = malloc(1 * sizeof(char));
+	if (!ret)
+		exit(EXIT_FAILURE);
+	return (ret);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char		**dir;
@@ -50,11 +60,11 @@ char	**ft_split(char const *s, char c)
 	long		i;
 
 	dir = diralloc(s, c);
-	if (!dir)
-		return (NULL);
 	s = next_word(s, c);
 	follower = s;
 	i = 0;
+	if (!*s)
+		dir[i++] = ft_empty_string();
 	while (*s)
 	{
 		s = next_sep(s, c);
