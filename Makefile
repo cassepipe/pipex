@@ -16,11 +16,13 @@
 
 NAME			=	pipex
 
-CC	  		  	=	gcc-11
+CC	  		  	=	gcc
 
-CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -fanalyzer
+CFLAGS			=	-Wall -Wextra -Werror -Iinc #-g3 
 
 SANITIZER		=	#-fsanitize=address
+
+ANALYSER		=	#-fanalyser
 
 SOURCES			=	free_null_terminated_array_of_arrays.c \
 					ft_split.c \
@@ -45,10 +47,10 @@ all:			$(NAME)
 
 $(NAME):		${OBJ/OBJECTS}
 				@echo "Linking..."
-				${CC} ${SANITIZER} ${OBJ/OBJECTS} -o $@ 
+				${CC} ${SANITIZER} ${ANALYSER} ${OBJ/OBJECTS} -o $@ 
 
 obj/%.o:		src/%.c	${INC/HEADERS} Makefile | obj
-				${CC} ${CFLAGS} -c $< -o $@
+				${CC} ${CFLAGS} ${ANALYSER} -c $< -o $@
 obj:			
 				mkdir obj
 

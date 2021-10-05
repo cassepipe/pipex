@@ -66,6 +66,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (dir && !*s)
 		dir[i++] = ft_empty_string();
+	if (!dir)
+		return (NULL);
 	while (dir && *s)
 	{
 		s = next_sep(s, c);

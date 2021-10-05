@@ -81,6 +81,7 @@ char	*ft_empty_string(void)
 
 	ret = malloc(1 * sizeof(char));
 	if (!ret)
-		exit(EXIT_FAILURE);
+		return (NULL);
+	*ret = '\0';
 	return (ret);
 }
