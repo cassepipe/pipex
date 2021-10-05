@@ -48,5 +48,5 @@ char	*get_pwd_var(char **envp)
 		envp++;
 	}
 	write(STDERR_FILENO, g_no_pwd_var_msg, sizeof(g_no_pwd_var_msg));
-	exit(EXIT_FAILURE);
+	return (NULL);
 }

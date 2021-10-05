@@ -4,9 +4,11 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+die_from_malloc_failure	src/get_command_path.c	/^static void	die_from_malloc_failure(char **cmdv, char **pathvar_entries)$/;"	f	file:
 diralloc	src/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 execute_pipeline	src/main.c	/^void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)$/;"	f
 file_is_ok_or_die	src/main.c	/^static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)$/;"	f	file:
+free_all_and_die	src/get_command_path.c	/^static void	free_all_and_die(char **cmdv, char **pathvar_entries)$/;"	f	file:
 free_dir_and_set_to_null	src/ft_split.c	/^static void	free_dir_and_set_to_null(char ***dir, long i)$/;"	f	file:
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
 ft_empty_string	src/utils.c	/^char	*ft_empty_string(void)$/;"	f
