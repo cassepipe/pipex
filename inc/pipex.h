@@ -18,7 +18,7 @@
 void	execute_pipeline(char *cmd_str, int read_from, int writ_to, char **env);
 void	free_null_terminated_array_of_arrays(char **array);
 char	**ft_split(char const *s, char c);
-char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries);
+char	*get_command_path(char **cmdv, char *cwd, char **pathvar_entries);
 char	*get_path_var(char **envp);
 char	*get_pwd_var(char **envp);
 void	print_usage_exit(void);

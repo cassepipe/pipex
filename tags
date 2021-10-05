@@ -7,7 +7,7 @@
 diralloc	src/ft_split.c	/^static char	**diralloc(const char *s, char c)$/;"	f	file:
 execute_pipeline	src/main.c	/^void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)$/;"	f
 file_is_ok_or_die	src/main.c	/^static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)$/;"	f	file:
-free_all	src/ft_split.c	/^static void	free_all(char **dir, long i)$/;"	f	file:
+free_dir_and_set_to_null	src/ft_split.c	/^static void	free_dir_and_set_to_null(char ***dir, long i)$/;"	f	file:
 free_null_terminated_array_of_arrays	src/free_null_terminated_array_of_arrays.c	/^void	free_null_terminated_array_of_arrays(char **array)$/;"	f
 ft_empty_string	src/utils.c	/^char	*ft_empty_string(void)$/;"	f
 ft_open	src/main.c	/^static int	ft_open(char *filename, int flags, mode_t mode)$/;"	f	file:
@@ -24,7 +24,7 @@ g_cmd_not_found	src/main.c	/^static const char	g_cmd_not_found[] = {$/;"	v	file:
 g_no_path_var_msg	src/getvar.c	/^static const char	g_no_path_var_msg[] = {$/;"	v	file:
 g_no_pwd_var_msg	src/getvar.c	/^static const char	g_no_pwd_var_msg[] = {$/;"	v	file:
 g_usage	src/print_usage_exit.c	/^static const char	g_usage[] = {$/;"	v	file:
-get_command_path	src/get_command_path.c	/^char	*get_command_path(char *cmd, char *cwd, char **pathvar_entries)$/;"	f
+get_command_path	src/get_command_path.c	/^char	*get_command_path(char **cmdv, char *cwd, char **pathvar_entries)$/;"	f
 get_path_var	src/getvar.c	/^char	*get_path_var(char **envp)$/;"	f
 get_pwd_var	src/getvar.c	/^char	*get_pwd_var(char **envp)$/;"	f
 main	src/main.c	/^int	main(int ac, char **av, char **envp)$/;"	f

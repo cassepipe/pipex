@@ -13,23 +13,24 @@
 #include <stdlib.h>
 #include "pipex.h"
 
-static void	free_all(char **dir, long i)
+static void	free_dir_and_set_to_null(char ***dir, long i)
 {
 	while (i-- >= 0)
-		free(dir[i]);
-	free(dir);
+		free((*dir)[i]);
+	free(*dir);
+	*dir = NULL;
 }
 
 static const char	*next_sep(const char *str, char sep)
 {
-	while (*str && *str != sep)
+	while (str && *str && *str != sep)
 		str++;
 	return (str);
 }
 
 static const char	*next_word(const char *str, char sep)
 {
-	while (*str && *str == sep)
+	while (str && *str && *str == sep)
 		str++;
 	return (str);
 }
@@ -50,8 +51,6 @@ static char	**diralloc(const char *s, char c)
 		size++;
 	}
 	ret = malloc(size * sizeof(char *));
-	if (!ret)
-		exit(EXIT_FAILURE);
 	return (ret);
 }
 
@@ -65,21 +64,19 @@ char	**ft_split(char const *s, char c)
 	s = next_word(s, c);
 	follower = s;
 	i = 0;
-	if (!*s)
+	if (dir && !*s)
 		dir[i++] = ft_empty_string();
-	while (*s)
+	while (dir && *s)
 	{
 		s = next_sep(s, c);
 		dir[i] = ft_strndup(follower, s - follower);
 		if (!dir[i])
-		{
-			free_all(dir, i);
-			return (NULL);
-		}
+			free_dir_and_set_to_null(&dir, i);
 		s = next_word(s, c);
 		follower = s;
 		i++;
 	}
-	dir[i] = NULL;
+	if (dir)
+		dir[i] = NULL;
 	return (dir);
 }

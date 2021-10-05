@@ -77,7 +77,7 @@ void	execute_pipeline(char *cmd_str, int read_from, int write_to, char **env)
 	redirect_fd_to_fd(1, write_to);
 	pathvar_entries = ft_split(get_path_var(env), ':');
 	cmdv = ft_split(cmd_str, ' ');
-	cmdv[0] = get_command_path(cmdv[0], get_pwd_var(env), pathvar_entries);
+	cmdv[0] = get_command_path(cmdv, get_pwd_var(env), pathvar_entries);
 	file_is_ok_or_die(cmdv, pathvar_entries);
 	execve(cmdv[0], cmdv, env);
 	free_null_terminated_array_of_arrays(cmdv);

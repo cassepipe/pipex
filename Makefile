@@ -16,9 +16,9 @@
 
 NAME			=	pipex
 
-CC	  		  	=	clang
+CC	  		  	=	gcc-11
 
-CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc #-fanalyzer
+CFLAGS			=	-Wall -Wextra -g3 -pedantic -Iinc -fanalyzer
 
 SANITIZER		=	#-fsanitize=address
 

@@ -19,13 +19,11 @@ char	*retrieve_file_path_in_cwd(char *cwd, char *cmd)
 	char	*file_path;
 
 	file_path = ft_strjoin3(cwd, "/", cmd);
+	free(cmd);
 	if (!file_path)
 	{
-		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-		perror("malloc");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
-	free(cmd);
 	return (file_path);
 }
 
@@ -38,9 +36,8 @@ char	*retrieve_command_in_pathvar(char *cmd, char **pathvar_entries)
 		cmd_path = ft_strjoin3(*pathvar_entries, "/", cmd);
 		if (!cmd_path)
 		{
-			write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-			perror("malloc");
-			exit(EXIT_FAILURE);
+			free((char *)cmd);
+			return (NULL);
 		}
 		if (access(cmd_path, F_OK) == 0)
 		{
