@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 #include "pipex.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -75,4 +76,16 @@ char	*ft_strndup(const char *s, size_t n)
 	}
 	duplicate[len] = '\0';
 	return (duplicate);
+}
+
+void	ft_puts_stderr(char *str)
+{
+	int	i;
+
+	i = ft_strlen(str);
+	if (*str == '\0')
+		write(STDERR_FILENO, "\"\"", 2);
+	else
+		write(STDERR_FILENO, str, i);
+	write(STDERR_FILENO, "\n", 1);
 }

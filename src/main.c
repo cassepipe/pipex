@@ -22,6 +22,10 @@ static const char	g_cmd_not_found[] = {
 	"command not found: "
 };
 
+static const char	g_empty_string[] = {
+	"The name of the input or output file cannot be an empty string\n"
+};
+
 static int	ft_open(char *filename, int flags, mode_t mode)
 {
 	int	fd;
@@ -29,8 +33,13 @@ static int	ft_open(char *filename, int flags, mode_t mode)
 	fd = open(filename, flags, mode);
 	if (fd == -1)
 	{
-		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-		perror(filename);
+		if (*filename == '\0')
+			write(STDERR_FILENO, g_empty_string, sizeof(g_empty_string));
+		else
+		{
+			write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
+			perror(filename);
+		}
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -55,8 +64,12 @@ static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)
 	{
 		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
 		if (cmdv[0][0] != '/')
+		{
 			write(STDERR_FILENO, g_cmd_not_found, sizeof(g_cmd_not_found));
-		perror(cmdv[0]);
+			ft_puts_stderr(cmdv[0]);
+		}
+		else
+			perror(cmdv[0]);
 		free_null_terminated_array_of_arrays(cmdv);
 		free_null_terminated_array_of_arrays(pathvar_entries);
 		if (errno == ENOENT)

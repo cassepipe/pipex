@@ -18,11 +18,11 @@ NAME			=	pipex
 
 CC	  		  	=	gcc
 
-CFLAGS			=	-Wall -Wextra -Werror -Iinc #-g3 
+CFLAGS			=	-Wall -Wextra -Werror -Iinc -g3 
 
 SANITIZER		=	#-fsanitize=address
 
-ANALYSER		=	#-fanalyser
+ANALYSER		=	#-fanalyzer
 
 SOURCES			=	free_null_terminated_array_of_arrays.c \
 					ft_split.c \
