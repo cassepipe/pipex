@@ -15,7 +15,10 @@
 
 # include <stdlib.h>
 
-void	execute_pipeline(char *cmd_str, int read_from, int writ_to, char **env);
+#define READ_END 0
+#define WRITE_END 1
+
+void	find_exec(char *cmd_str, char **env, char **pathvar_entries);
 void	free_null_terminated_array_of_arrays(char **array);
 char	**ft_split(char const *s, char c);
 char	*get_command_path(char **cmdv, char *cwd, char **pathvar_entries);

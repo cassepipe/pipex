@@ -1,0 +1,178 @@
+[
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/free_null_terminated_array_of_arrays.c",
+   "-o",
+   "obj/free_null_terminated_array_of_arrays.o"
+  ],
+  "file": "src/free_null_terminated_array_of_arrays.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/ft_split.c",
+   "-o",
+   "obj/ft_split.o"
+  ],
+  "file": "src/ft_split.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/get_command_path.c",
+   "-o",
+   "obj/get_command_path.o"
+  ],
+  "file": "src/get_command_path.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/getvar.c",
+   "-o",
+   "obj/getvar.o"
+  ],
+  "file": "src/getvar.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/main.c",
+   "-o",
+   "obj/main.o"
+  ],
+  "file": "src/main.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/print_usage_exit.c",
+   "-o",
+   "obj/print_usage_exit.o"
+  ],
+  "file": "src/print_usage_exit.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/redirections.c",
+   "-o",
+   "obj/redirections.o"
+  ],
+  "file": "src/redirections.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/retrieve.c",
+   "-o",
+   "obj/retrieve.o"
+  ],
+  "file": "src/retrieve.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/strjoin3.c",
+   "-o",
+   "obj/strjoin3.o"
+  ],
+  "file": "src/strjoin3.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/utils2.c",
+   "-o",
+   "obj/utils2.o"
+  ],
+  "file": "src/utils2.c"
+ },
+ {
+  "directory": "/home/cassepipe/pipex",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-c",
+   "src/utils.c",
+   "-o",
+   "obj/utils.o"
+  ],
+  "file": "src/utils.c"
+ }
+]
