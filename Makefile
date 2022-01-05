@@ -21,9 +21,11 @@ CC	  		  	=	gcc
 #Add -Werror before correction
 CFLAGS			=	-Wall -Wextra  -Iinc -g3
 
+LDFLAGS			=	#-static-libasan
+
 SANITIZER		=	#-fsanitize=address
 
-ANALYSER		=	#-fanalyzer
+ANALYSER		=	-fanalyzer
 
 SOURCES			=	free_null_terminated_array_of_arrays.c \
 					ft_split.c \
@@ -48,7 +50,7 @@ all:			$(NAME)
 
 $(NAME):		${OBJ/OBJECTS}
 				@echo "Linking..."
-				${CC} ${SANITIZER} ${ANALYSER} ${OBJ/OBJECTS} -o $@ 
+				${CC} ${SANITIZER} ${ANALYSER} ${LDFLAGS} ${OBJ/OBJECTS} -o $@ 
 
 obj/%.o:		src/%.c	${INC/HEADERS} Makefile | obj
 				${CC} ${CFLAGS} ${ANALYSER} -c $< -o $@

@@ -108,7 +108,6 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 #include <limits.h>
 #include <fcntl.h>
 
-
 int	execute_pipeline(char *cmd, char **envp, char **pathvar_entries, int pipe_end)
 {
 	int	child_pid;
@@ -181,10 +180,10 @@ int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *reading_pi
 	cpid = fork();
 	if (cpid == 0)
 	{
-		if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);
-		if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);
+		/*if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)*/
+		/*    dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);*/
+		/*if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)*/
+		/*    dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);*/
 		find_exec(cmd, envp, pathvar_entries);
 	}
 	return cpid;
@@ -204,12 +203,12 @@ int	main(int ac, char **av, char **envp)
 	if (ac < 5)
 		print_usage_exit();
 	n_cmds = ac - 3;
-	pathvar_entries = ft_split(get_path_var(envp), ':');
 	reading_pipe[READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	outfile_fd = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
+	pathvar_entries = ft_split(get_path_var(envp), ':');
 	n = 0;
 	av += 2;
-	while (n < n_cmds - 1)
+	while (n < ac - 3 - 1)
 	{
 		execute(*(av + n), envp, pathvar_entries, reading_pipe, writing_pipe);
 		n++;
@@ -217,14 +216,15 @@ int	main(int ac, char **av, char **envp)
 	last_pid = execute_last(*(av + n), envp, pathvar_entries, reading_pipe, outfile_fd);
 	close(reading_pipe[READ_END]);
 	close(outfile_fd);
+	free_null_terminated_array_of_arrays(pathvar_entries);
 	n = 0;
-	while (n <  n_cmds -1)
+	while (n <  ac - 3 -1)
 	{
-		dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);
+		/*dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);*/
 		wait(NULL);
 		n++;
 	}
-	dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);
+	/*dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);*/
 	waitpid(last_pid, &wstatus, 0);
 	return (WEXITSTATUS(wstatus));
 }
