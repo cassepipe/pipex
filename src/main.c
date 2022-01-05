@@ -19,8 +19,14 @@
 #include <sys/wait.h>
 #include "pipex.h"
 
-#define READ_END 0
-#define WRITE_END 1
+#define	FILE_ARGS	2
+#define	PROGRAM_NAME	1
+
+#define PIPE_FUTURE_READ_END 0
+#define PIPE_WRITE_END 1
+#define PIPE_READ_END 2
+#define OUTFILE 3
+
 
 static const char	g_cmd_not_found[] = {
 	"command not found: "
@@ -115,17 +121,16 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 #include <limits.h>
 #include <fcntl.h>
 
-int	execute(char *cmd, char **envp, char **pathvar_entries, int *reading_pipe, int *writing_pipe)
+int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
 {
 	int cpid;
-	char filePath[PATH_MAX];
+	/*char filePath[PATH_MAX];*/
 
-	pipe_or_die(writing_pipe);
-	close(reading_pipe[WRITE_END]);
-	dup2(reading_pipe[READ_END], 0);
-	close(reading_pipe[READ_END]);
-	dup2(writing_pipe[WRITE_END], 1);
-	close(writing_pipe[WRITE_END]);
+	pipe_or_die(fd);
+	dup2(fd[PIPE_READ_END], 0);
+	close(fd[PIPE_READ_END]);
+	dup2(fd[PIPE_WRITE_END], 1);
+	close(fd[PIPE_WRITE_END]);
 	cpid = fork();
 	if (cpid == 0)
 	{
@@ -133,23 +138,22 @@ int	execute(char *cmd, char **envp, char **pathvar_entries, int *reading_pipe, i
 		/*    dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);*/
 		/*if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)*/
 		/*    dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);*/
-		close(writing_pipe[READ_END]);
+		close(fd[PIPE_FUTURE_READ_END]);
 		find_exec(cmd, envp, pathvar_entries);
 	}
-	reading_pipe[READ_END] = writing_pipe[READ_END];
+	fd[PIPE_READ_END] = fd[PIPE_FUTURE_READ_END];
 	return cpid;
 }
 
-int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *reading_pipe, int outfile)
+int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *fd)
 {
 	int cpid;
-	char filePath[PATH_MAX];
+	/*char filePath[PATH_MAX];*/
 
-	close(reading_pipe[WRITE_END]);
-	dup2(reading_pipe[READ_END], 0);
-	close(reading_pipe[READ_END]);
-	dup2(outfile, 1);
-	close(outfile);
+	dup2(fd[PIPE_READ_END], 0);
+	close(fd[PIPE_READ_END]);
+	dup2(fd[OUTFILE], 1);
+	close(fd[OUTFILE]);
 	cpid = fork();
 	if (cpid == 0)
 	{
@@ -168,34 +172,28 @@ int	main(int ac, char **av, char **envp)
 	int		wstatus;
 	char	**pathvar_entries;
 	int		last_pid;
-	int		reading_pipe[2];
-	int		writing_pipe[2];
-	int		outfile_fd;
+	int		fd[4];
 
-	if (ac < 5)
+	if (ac < PROGRAM_NAME + FILE_ARGS + 2)
 		print_usage_exit();
-	reading_pipe[READ_END] = ft_open(av[1], O_RDONLY, 0666);
-	outfile_fd = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
+	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
+	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
 	n = 0;
 	av += 2;
-	while (n < ac - 3 - 1)
+	while (n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 	{
-		execute(*(av + n), envp, pathvar_entries, reading_pipe, writing_pipe);
+		execute(*(av + n), envp, pathvar_entries, fd);
 		n++;
 	}
-	last_pid = execute_last(*(av + n), envp, pathvar_entries, reading_pipe, outfile_fd);
-	close(reading_pipe[READ_END]);
-	close(outfile_fd);
+	last_pid = execute_last(*(av + n), envp, pathvar_entries, fd);
 	free_null_terminated_array_of_arrays(pathvar_entries);
 	n = 0;
-	while (n <  ac - 3 - 1)
+	while (n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 	{
-		/*dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);*/
 		wait(NULL);
 		n++;
 	}
-	/*dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);*/
 	waitpid(last_pid, &wstatus, 0);
 	return (WEXITSTATUS(wstatus));
 }
