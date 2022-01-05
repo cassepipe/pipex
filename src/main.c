@@ -30,6 +30,10 @@ static const char	g_empty_string[] = {
 	"The name of the input or output file cannot be an empty string\n"
 };
 
+static const char	g_no_file_or_dir[] = {
+	"No such file or drectory: "
+};
+
 static int	ft_open(char *filename, int flags, mode_t mode)
 {
 	int	fd;
@@ -73,7 +77,10 @@ static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)
 			ft_puts_stderr(cmdv[0]);
 		}
 		else
-			perror(cmdv[0]);
+		{
+			write(STDERR_FILENO, g_no_file_or_dir, sizeof(g_no_file_or_dir));
+			ft_puts_stderr(cmdv[0]);
+		}
 		free_null_terminated_array_of_arrays(cmdv);
 		free_null_terminated_array_of_arrays(pathvar_entries);
 		if (errno == ENOENT)
@@ -108,40 +115,6 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 #include <limits.h>
 #include <fcntl.h>
 
-int	execute_pipeline(char *cmd, char **envp, char **pathvar_entries, int pipe_end)
-{
-	int	child_pid;
-	int pipe_fd[2];
-	char filePath[PATH_MAX];
-
-
-	child_pid = fork();
-	if (child_pid == -1)
-		perror("fork");
-	else if (child_pid == 0)
-	{
-		pipe_or_die(pipe_fd);
-		dprintf(STDERR_FILENO, "In cmd = %s, opened pipe[READ_END]=%i and pipe[WRITE_END]=%i\n", cmd, pipe_fd[0], pipe_fd[1]);
-		if (pipe_end - 1 < 0)
-		{
-			dprintf(STDERR_FILENO, "In cmd= %s fd 1 now points to pipe[WRITE_END]\n", cmd);
-			redirect_fd_to_fd(1, pipe_fd[1]);
-		}
-		if (pipe_end + 1 > 0)
-		{
-			dprintf(STDERR_FILENO, "In cmd= %s fd 0 now points to pipe[READ_END]\n", cmd);
-			redirect_fd_to_fd(0, pipe_fd[0]);
-		}
-		if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);
-		if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);
-		dprintf(STDERR_FILENO, "About to exec cmd=%s\n", cmd);
-		find_exec(cmd, envp, pathvar_entries);
-	}
-	return child_pid;
-}
-
 int	execute(char *cmd, char **envp, char **pathvar_entries, int *reading_pipe, int *writing_pipe)
 {
 	int cpid;
@@ -156,10 +129,10 @@ int	execute(char *cmd, char **envp, char **pathvar_entries, int *reading_pipe, i
 	cpid = fork();
 	if (cpid == 0)
 	{
-		if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);
-		if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);
+		/*if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)*/
+		/*    dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);*/
+		/*if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)*/
+		/*    dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);*/
 		close(writing_pipe[READ_END]);
 		find_exec(cmd, envp, pathvar_entries);
 	}
@@ -192,7 +165,6 @@ int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *reading_pi
 int	main(int ac, char **av, char **envp)
 {
 	int		n;
-	int		n_cmds;
 	int		wstatus;
 	char	**pathvar_entries;
 	int		last_pid;
@@ -202,7 +174,6 @@ int	main(int ac, char **av, char **envp)
 
 	if (ac < 5)
 		print_usage_exit();
-	n_cmds = ac - 3;
 	reading_pipe[READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	outfile_fd = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
@@ -218,7 +189,7 @@ int	main(int ac, char **av, char **envp)
 	close(outfile_fd);
 	free_null_terminated_array_of_arrays(pathvar_entries);
 	n = 0;
-	while (n <  ac - 3 -1)
+	while (n <  ac - 3 - 1)
 	{
 		/*dprintf(STDERR_FILENO, "Waiting for av[n]=%s\n", av[n]);*/
 		wait(NULL);
