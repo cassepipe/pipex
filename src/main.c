@@ -179,13 +179,10 @@ int	main(int ac, char **av, char **envp)
 	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
-	n = 0;
+	n = -1;
 	av += 2;
-	while (n < ac - PROGRAM_NAME - FILE_ARGS - 1)
-	{
+	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 		execute(*(av + n), envp, pathvar_entries, fd);
-		n++;
-	}
 	last_pid = execute_last(*(av + n), envp, pathvar_entries, fd);
 	free_null_terminated_array_of_arrays(pathvar_entries);
 	n = 0;

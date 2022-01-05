@@ -15,9 +15,6 @@
 
 # include <stdlib.h>
 
-#define READ_END 0
-#define WRITE_END 1
-
 void	find_exec(char *cmd_str, char **env, char **pathvar_entries);
 void	free_null_terminated_array_of_arrays(char **array);
 char	**ft_split(char const *s, char c);
