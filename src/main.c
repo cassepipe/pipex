@@ -19,14 +19,13 @@
 #include <sys/wait.h>
 #include "pipex.h"
 
-#define	FILE_ARGS	2
-#define	PROGRAM_NAME	1
+#define FILE_ARGS 2
+#define PROGRAM_NAME 1
 
 #define PIPE_FUTURE_READ_END 0
 #define PIPE_WRITE_END 1
 #define PIPE_READ_END 2
 #define OUTFILE 3
-
 
 static const char	g_cmd_not_found[] = {
 	"command not found: "
@@ -118,13 +117,9 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 	free_null_terminated_array_of_arrays(pathvar_entries);
 }
 
-#include <limits.h>
-#include <fcntl.h>
-
 int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
 {
-	int cpid;
-	/*char filePath[PATH_MAX];*/
+	int	cpid;
 
 	pipe_or_die(fd);
 	dup2(fd[PIPE_READ_END], 0);
@@ -134,21 +129,16 @@ int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
 	cpid = fork();
 	if (cpid == 0)
 	{
-		/*if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)*/
-		/*    dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);*/
-		/*if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)*/
-		/*    dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);*/
 		close(fd[PIPE_FUTURE_READ_END]);
 		find_exec(cmd, envp, pathvar_entries);
 	}
 	fd[PIPE_READ_END] = fd[PIPE_FUTURE_READ_END];
-	return cpid;
+	return (cpid);
 }
 
 int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *fd)
 {
-	int cpid;
-	/*char filePath[PATH_MAX];*/
+	int	cpid;
 
 	dup2(fd[PIPE_READ_END], 0);
 	close(fd[PIPE_READ_END]);
@@ -157,13 +147,9 @@ int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *fd)
 	cpid = fork();
 	if (cpid == 0)
 	{
-		/*if (readlink("/proc/self/fd/0", filePath, PATH_MAX) != -1)*/
-		/*    dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, filePath);*/
-		/*if (readlink("/proc/self/fd/1", filePath, PATH_MAX) != -1)*/
-		/*    dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, filePath);*/
 		find_exec(cmd, envp, pathvar_entries);
 	}
-	return cpid;
+	return (cpid);
 }
 
 int	main(int ac, char **av, char **envp)
@@ -179,18 +165,14 @@ int	main(int ac, char **av, char **envp)
 	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
-	n = -1;
-	av += 2;
+	n = 1;
 	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 		execute(*(av + n), envp, pathvar_entries, fd);
 	last_pid = execute_last(*(av + n), envp, pathvar_entries, fd);
 	free_null_terminated_array_of_arrays(pathvar_entries);
-	n = 0;
-	while (n < ac - PROGRAM_NAME - FILE_ARGS - 1)
-	{
+	n = 1;
+	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 		wait(NULL);
-		n++;
-	}
 	waitpid(last_pid, &wstatus, 0);
 	return (WEXITSTATUS(wstatus));
 }
