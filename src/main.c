@@ -130,11 +130,6 @@ int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
 	cpid = fork();
 	if (cpid == 0)
 	{
-		char	file_path[512];
-		if (readlink("/proc/self/fd/0", file_path, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, file_path);
-		if (readlink("/proc/self/fd/1", file_path, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, file_path);
 		close(fd[PIPE_FUTURE_READ_END]);
 		find_exec(cmd, envp, pathvar_entries);
 	}
@@ -153,11 +148,6 @@ int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *fd)
 	cpid = fork();
 	if (cpid == 0)
 	{
-		char	file_path[512];
-		if (readlink("/proc/self/fd/0", file_path, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, file_path);
-		if (readlink("/proc/self/fd/1", file_path, PATH_MAX) != -1)
-			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, file_path);
 		find_exec(cmd, envp, pathvar_entries);
 	}
 	return (cpid);
@@ -174,7 +164,7 @@ int	main(int ac, char **av, char **envp)
 	if (ac < PROGRAM_NAME + FILE_ARGS + 2)
 		print_usage_exit();
 	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
-	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
+	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
 	av += 2;
 	n = -1;
