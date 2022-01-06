@@ -17,6 +17,7 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <limits.h>
 #include "pipex.h"
 
 #define FILE_ARGS 2
@@ -129,6 +130,11 @@ int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
 	cpid = fork();
 	if (cpid == 0)
 	{
+		char	file_path[512];
+		if (readlink("/proc/self/fd/0", file_path, PATH_MAX) != -1)
+			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, file_path);
+		if (readlink("/proc/self/fd/1", file_path, PATH_MAX) != -1)
+			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, file_path);
 		close(fd[PIPE_FUTURE_READ_END]);
 		find_exec(cmd, envp, pathvar_entries);
 	}
@@ -147,6 +153,11 @@ int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *fd)
 	cpid = fork();
 	if (cpid == 0)
 	{
+		char	file_path[512];
+		if (readlink("/proc/self/fd/0", file_path, PATH_MAX) != -1)
+			dprintf(STDERR_FILENO, "In cmd=  %s 0 points to %s\n", cmd, file_path);
+		if (readlink("/proc/self/fd/1", file_path, PATH_MAX) != -1)
+			dprintf(STDERR_FILENO, "In cmd=  %s 1 points to %s\n", cmd, file_path);
 		find_exec(cmd, envp, pathvar_entries);
 	}
 	return (cpid);
@@ -165,12 +176,13 @@ int	main(int ac, char **av, char **envp)
 	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
-	n = 1;
+	av += 2;
+	n = -1;
 	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 		execute(*(av + n), envp, pathvar_entries, fd);
 	last_pid = execute_last(*(av + n), envp, pathvar_entries, fd);
 	free_null_terminated_array_of_arrays(pathvar_entries);
-	n = 1;
+	n = -1;
 	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
 		wait(NULL);
 	waitpid(last_pid, &wstatus, 0);
