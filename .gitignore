@@ -7,7 +7,7 @@ libft/libft.a
 src/.*.c.swp
 src/.*.h.swp
 .cache
-.clangd/*
+.clangd/
 .ccls-cache/
 infile
 outfile
@@ -17,3 +17,4 @@ outs
 follow_fork_child.py
 makeheaders
 tags
+tags.lock
