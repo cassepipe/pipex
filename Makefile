@@ -25,7 +25,7 @@ LDFLAGS			=	#-static-libasan
 
 SANITIZER		=	#-fsanitize=address
 
-ANALYSER		=	-fanalyzer
+ANALYSER		=	#-fanalyzer
 
 SOURCES			=	free_null_terminated_array_of_arrays.c \
 					ft_split.c \
@@ -36,6 +36,7 @@ SOURCES			=	free_null_terminated_array_of_arrays.c \
 					redirections.c \
 					retrieve.c \
 					strjoin3.c \
+					ft_perror.c \
 					utils2.c \
 					utils.c 
 
