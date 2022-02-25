@@ -6,7 +6,7 @@
 /*   By: tpouget <tpouget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 21:28:44 by tpouget           #+#    #+#             */
-/*   Updated: 2021/10/02 21:28:44 by tpouget          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:18:32 by cassepipe        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ char	*ft_strndup(const char *s, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char const *s1, char const *s2, size_t *len);
 void	ft_puts_stderr(char *str);
+void	ft_perror(const char *prg_name, const char *about, const char *err_msg);
 
 #endif

@@ -25,8 +25,7 @@ static void	die_from_malloc_failure(char **cmdv, char **pathvar_entries)
 {
 	free_null_terminated_array_of_arrays(cmdv);
 	free_null_terminated_array_of_arrays(pathvar_entries);
-	write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-	perror("malloc");
+	perror("pipex: malloc");
 	exit(EXIT_FAILURE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tpouget <tpouget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 21:15:32 by tpouget           #+#    #+#             */
-/*   Updated: 2021/10/02 21:15:32 by tpouget          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:23:30 by cassepipe        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,6 @@
 #define PIPE_READ_END 2
 #define OUTFILE 3
 
-static const char	g_cmd_not_found[] = {
-	"command not found: "
-};
-
-static const char	g_empty_string[] = {
-	"The name of the input or output file cannot be an empty string\n"
-};
-
-static const char	g_no_file_or_dir[] = {
-	"No such file or drectory: "
-};
-
 static int	ft_open(char *filename, int flags, mode_t mode)
 {
 	int	fd;
@@ -47,13 +35,7 @@ static int	ft_open(char *filename, int flags, mode_t mode)
 	fd = open(filename, flags, mode);
 	if (fd == -1)
 	{
-		if (*filename == '\0')
-			write(STDERR_FILENO, g_empty_string, sizeof(g_empty_string));
-		else
-		{
-			write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-			perror(filename);
-		}
+		ft_perror("pipex: ", filename, ": No such file or directory\n");
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -66,8 +48,7 @@ static void	pipe_or_die(int *pipe_fds)
 	r = pipe(pipe_fds);
 	if (r == -1)
 	{
-		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-		perror("pipe");
+		perror("pipex: pipe");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -76,17 +57,10 @@ static void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)
 {
 	if (access(cmdv[0], X_OK) == -1)
 	{
-		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
 		if (cmdv[0][0] != '/')
-		{
-			write(STDERR_FILENO, g_cmd_not_found, sizeof(g_cmd_not_found));
-			ft_puts_stderr(cmdv[0]);
-		}
+			ft_perror("pipex: ", cmdv[0], ": command not found\n");
 		else
-		{
-			write(STDERR_FILENO, g_no_file_or_dir, sizeof(g_no_file_or_dir));
-			ft_puts_stderr(cmdv[0]);
-		}
+			ft_perror("pipex: ", cmdv[0], ": No such file or directory\n");
 		free_null_terminated_array_of_arrays(cmdv);
 		free_null_terminated_array_of_arrays(pathvar_entries);
 		if (errno == ENOENT)
@@ -105,8 +79,7 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 	cmdv = ft_split(cmd_str, ' ');
 	if (!pathvar_entries || !cmdv)
 	{
-		write(STDERR_FILENO, "pipex: ", sizeof("pipex: "));
-		perror("malloc");
+		perror("pipex: malloc");
 		free_null_terminated_array_of_arrays(cmdv);
 		free_null_terminated_array_of_arrays(pathvar_entries);
 		exit(EXIT_FAILURE);
@@ -116,6 +89,8 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 	execve(cmdv[0], cmdv, env);
 	free_null_terminated_array_of_arrays(cmdv);
 	free_null_terminated_array_of_arrays(pathvar_entries);
+	perror(cmdv[0]);
+	exit(EXIT_FAILURE);
 }
 
 int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
