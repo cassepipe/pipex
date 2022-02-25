@@ -19,9 +19,7 @@ NAME			=	pipex
 CC	  		  	=	gcc
 
 #Add -Werror before correction
-CFLAGS			=	-Wall -Wextra  -Iinc -g3
-
-LDFLAGS			=	#-static-libasan
+CFLAGS			=	-Wall -Wextra -Werror -Iinc -g3
 
 SANITIZER		=	#-fsanitize=address
 
