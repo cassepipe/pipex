@@ -94,8 +94,8 @@ int	main(int ac, char **av, char **envp)
 
 	if (ac < PROGRAM_NAME + FILE_ARGS + 2)
 		print_usage_exit();
-	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
+	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
 	pathvar_entries = ft_split(get_path_var(envp), ':');
 	av += 2;
 	n = -1;
