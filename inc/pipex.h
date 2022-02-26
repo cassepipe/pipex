@@ -40,5 +40,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2, size_t *len);
 void	ft_puts_stderr(char *str);
 void	ft_perror(const char *prg_name, const char *about, const char *err_msg);
+int		ft_open(char *filename, int flags, mode_t mode);
+void	pipe_or_die(int *pipe_fds);
+void	file_is_ok_or_die(char **cmdv, char **pathvar_entries);
 
 #endif

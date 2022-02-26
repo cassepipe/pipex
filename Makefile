@@ -16,7 +16,7 @@
 
 NAME			=	pipex
 
-CC	  		  	=	gcc
+CC	  		  	=	clang
 
 #Add -Werror before correction
 CFLAGS			=	-Wall -Wextra -Werror -Iinc -g3
@@ -34,6 +34,7 @@ SOURCES			=	free_null_terminated_array_of_arrays.c \
 					redirections.c \
 					retrieve.c \
 					strjoin3.c \
+					syscall_wrappers.c \
 					ft_perror.c \
 					utils2.c \
 					utils.c 
