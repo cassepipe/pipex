@@ -16,30 +16,19 @@
 #include <stdio.h>
 #include <errno.h>
 #include "pipex.h"
+#include "t_job.h"
 
-int	ft_open(char *filename, int flags, mode_t mode)
-{
-	int	fd;
-
-	fd = open(filename, flags, mode);
-	if (fd == -1)
-	{
-		ft_perror("pipex: ", filename, ": No such file or directory\n");
-		exit(EXIT_FAILURE);
-	}
-	return (fd);
-}
-
-void	pipe_or_die(int *pipe_fds)
+int	pipe_or_err(int *pipe_fds)
 {
 	int	r;
 
 	r = pipe(pipe_fds);
 	if (r == -1)
 	{
-		perror("pipex: pipe");
-		exit(EXIT_FAILURE);
+		perror("pipex: pipe() function failed");
+		return (1);
 	}
+	return (0);
 }
 
 void	file_is_ok_or_die(char **cmdv, char **pathvar_entries)

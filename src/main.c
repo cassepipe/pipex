@@ -19,14 +19,7 @@
 #include <sys/wait.h>
 #include <limits.h>
 #include "pipex.h"
-
-#define FILE_ARGS 2
-#define PROGRAM_NAME 1
-
-#define PIPE_FUTURE_READ_END 0
-#define PIPE_WRITE_END 1
-#define PIPE_READ_END 2
-#define OUTFILE 3
+#include "t_job.h"
 
 void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 {
@@ -49,62 +42,83 @@ void	find_exec(char *cmd_str, char **env, char **pathvar_entries)
 	exit(EXIT_FAILURE);
 }
 
-int	execute(char *cmd, char **envp, char **pathvar_entries, int *fd)
+int	handle_redir_in(t_job job, int *fd)
+{
+	if (job.curr_cmd_idx == 0)
+		fd[PIPE_READ_END] = open(job.cmds[-1], O_RDONLY, 0644);
+	if (fd[PIPE_READ_END] == -1)
+	{
+		ft_perror("pipex: ", job.cmds[-1], ": No such file or directory\n");
+		return (1);
+	}
+	return (0);
+}
+
+int	handle_redir_out(t_job job, int *fd)
+{
+	if (job.curr_cmd_idx == job.nb_cmds - 1)
+		fd[PIPE_WRITE_END] = open
+			(job.cmds[job.nb_cmds], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd[PIPE_WRITE_END] == -1)
+	{
+		ft_perror ("pipex: ", job.cmds[job.nb_cmds],
+			": Permission denied\n");
+		return (1);
+	}
+	return (0);
+}
+
+int	execute_job(t_job job, int *fd)
 {
 	int	cpid;
+	int	ret;
 
-	pipe_or_die(fd);
+	ret = pipe_or_err(fd);
+	if (!ret)
+		ret = handle_redir_in(job, fd);
 	dup2(fd[PIPE_READ_END], 0);
 	close(fd[PIPE_READ_END]);
+	if (!ret)
+		ret = handle_redir_out(job, fd);
 	dup2(fd[PIPE_WRITE_END], 1);
 	close(fd[PIPE_WRITE_END]);
 	cpid = fork();
 	if (cpid == 0)
 	{
 		close(fd[PIPE_FUTURE_READ_END]);
-		find_exec(cmd, envp, pathvar_entries);
+		if (ret == 0)
+			find_exec
+				(job.cmds[job.curr_cmd_idx], job.envp, job.pathvar_entries);
+		else
+			free_null_terminated_array_of_arrays(job.pathvar_entries);
+		exit(EXIT_FAILURE);
 	}
 	fd[PIPE_READ_END] = fd[PIPE_FUTURE_READ_END];
 	return (cpid);
 }
 
-int	execute_last(char *cmd, char **envp, char **pathvar_entries, int *fd)
-{
-	int	cpid;
-
-	dup2(fd[PIPE_READ_END], 0);
-	close(fd[PIPE_READ_END]);
-	dup2(fd[OUTFILE], 1);
-	close(fd[OUTFILE]);
-	cpid = fork();
-	if (cpid == 0)
-	{
-		find_exec(cmd, envp, pathvar_entries);
-	}
-	return (cpid);
-}
-
 int	main(int ac, char **av, char **envp)
 {
-	int		n;
 	int		wstatus;
-	char	**pathvar_entries;
 	int		last_pid;
-	int		fd[4];
+	int		fd[3];
+	t_job	job;
 
 	if (ac < PROGRAM_NAME + FILE_ARGS + 2)
 		print_usage_exit();
-	fd[OUTFILE] = ft_open(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
-	fd[PIPE_READ_END] = ft_open(av[1], O_RDONLY, 0666);
-	pathvar_entries = ft_split(get_path_var(envp), ':');
 	av += 2;
-	n = -1;
-	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
-		execute(*(av + n), envp, pathvar_entries, fd);
-	last_pid = execute_last(*(av + n), envp, pathvar_entries, fd);
-	free_null_terminated_array_of_arrays(pathvar_entries);
-	n = -1;
-	while (++n < ac - PROGRAM_NAME - FILE_ARGS - 1)
+	job.envp = envp;
+	job.pathvar_entries = ft_split(get_path_var(envp), ':');
+	if (job.pathvar_entries == NULL)
+		return (EXIT_FAILURE);
+	job.cmds = av;
+	job.nb_cmds = ac - PROGRAM_NAME - FILE_ARGS;
+	job.curr_cmd_idx = -1;
+	while (++job.curr_cmd_idx < job.nb_cmds)
+		last_pid = execute_job(job, fd);
+	free_null_terminated_array_of_arrays(job.pathvar_entries);
+	job.curr_cmd_idx = -1;
+	while (++job.curr_cmd_idx < job.nb_cmds - 1)
 		wait(NULL);
 	waitpid(last_pid, &wstatus, 0);
 	return (WEXITSTATUS(wstatus));

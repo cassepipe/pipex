@@ -18,3 +18,5 @@ follow_fork_child.py
 makeheaders
 tags
 tags.lock
+infile
+outfile

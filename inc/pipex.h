@@ -14,6 +14,14 @@
 # define PIPEX_H
 
 # include <stdlib.h>
+# include "t_job.h"
+
+# define FILE_ARGS 2
+# define PROGRAM_NAME 1
+
+# define PIPE_FUTURE_READ_END 0
+# define PIPE_WRITE_END 1
+# define PIPE_READ_END 2
 
 void	find_exec(char *cmd_str, char **env, char **pathvar_entries);
 void	free_null_terminated_array_of_arrays(char **array);
@@ -40,8 +48,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2, size_t *len);
 void	ft_puts_stderr(char *str);
 void	ft_perror(const char *prg_name, const char *about, const char *err_msg);
-int		ft_open(char *filename, int flags, mode_t mode);
-void	pipe_or_die(int *pipe_fds);
+int		pipe_or_err(int *pipe_fds);
 void	file_is_ok_or_die(char **cmdv, char **pathvar_entries);
 
 #endif

@@ -16,7 +16,7 @@
 
 NAME			=	pipex
 
-CC	  		  	=	clang
+CC	  		  	=	gcc
 
 #Add -Werror before correction
 CFLAGS			=	-Wall -Wextra -Werror -Iinc -g3
